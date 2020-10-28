@@ -1,0 +1,14 @@
+uuid: 7a8649a1-0905-4c49-9af0-58fab57d80e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.gradient_user
+  module:
+    - user
+id: user_add_role_action.gradient_user
+label: 'Add the Gradient user role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: gradient_user

@@ -1,0 +1,14 @@
+uuid: 248e0e2a-d9dd-400f-9c93-e900342a1761
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.gradient_user
+  module:
+    - user
+id: user_remove_role_action.gradient_user
+label: 'Remove the Gradient user role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: gradient_user

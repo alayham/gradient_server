@@ -1,0 +1,17 @@
+uuid: cb5ab6a3-3760-4088-8083-ca5af90fe739
+langcode: en
+status: true
+dependencies: {  }
+id: gradient_user
+label: 'Gradient user'
+weight: -7
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'create gradient content'
+  - 'delete own gradient content'
+  - 'edit own gradient content'
+  - 'revert gradient revisions'
+  - 'view gradient revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'

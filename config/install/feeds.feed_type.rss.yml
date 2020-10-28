@@ -1,0 +1,101 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.item.body
+    - field.field.node.item.feeds_item
+    - field.field.node.item.link
+    - field.field.node.item.source
+    - field.field.node.item.tags
+    - node.type.item
+  module:
+    - node
+id: rss
+label: 'RSS Feed'
+description: ''
+help: ''
+import_period: 21600
+fetcher: http
+fetcher_configuration:
+  auto_detect_feeds: false
+  use_pubsubhubbub: false
+  always_download: false
+  fallback_hub: ''
+  request_timeout: 30
+parser: syndication
+parser_configuration: {  }
+processor: 'entity:node'
+processor_configuration:
+  langcode: en
+  update_existing: 2
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+  authorize: true
+  skip_hash_check: false
+  values:
+    type: item
+custom_sources: {  }
+mappings:
+  -
+    target: uid
+    map:
+      target_id: 'parent:uid'
+    settings:
+      language: ''
+      reference_by: uid
+      autocreate: 0
+  -
+    target: created
+    map:
+      value: 'parent:created'
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: title
+    map:
+      value: title
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: link
+    map:
+      uri: url
+      title: title
+    settings:
+      language: null
+  -
+    target: source
+    map:
+      target_id: 'parent:fid'
+    settings:
+      language: ''
+      reference_by: fid
+      autocreate: 0
+  -
+    target: tags
+    map:
+      target_id: tags
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: body
+    map:
+      value: description
+      summary: '----'
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: feeds_item
+    map:
+      url: url
+      guid: guid
+    unique:
+      url: '1'
+    settings: {  }

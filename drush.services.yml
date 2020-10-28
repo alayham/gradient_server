@@ -1,0 +1,5 @@
+services:
+  gradient.demo_data:
+    class: \Drupal\gradient_server\Commands\DemoData
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,18 @@
+{
+    "name": "drupal/gradient_server",
+    "description": "Allows the creation of multiple aggregated feeds based on other aggregated feeds",
+    "type": "drupal-profile",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "drupal/feeds": "^3.0",
+        "drupal/views_rss": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "Al Saleh",
+            "email": "alayham@alayham.com"
+        }
+    ],
+    "homepage": "http://www.alayham.com",
+    "minimum-stability": "dev"
+}
