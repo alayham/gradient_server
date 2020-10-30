@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - feeds
+    - taxonomy
+id: feeds_feed.category
+field_name: category
+entity_type: feeds_feed
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
