@@ -4,9 +4,16 @@
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
     "require": {
-        "drupal/core": "^9",
+        "drupal/antibot": "^1.4",
+        "drupal/admin_toolbar": "2.4",
+        "drupal/better_exposed_filters": "^5.0@beta",
+        "drupal/facets": "^1.5",
         "drupal/feeds": "^3.0",
-        "drupal/views_rss": "^2.0"
+        "drupal/honeypot": "^2.0",
+        "drupal/search_api": "^1.18",
+        "drupal/search_api_solr": "^4.1",
+        "drupal/views_rss": "^2.0",
+        "drush/drush": "^10.4"
     },
     "authors": [
         {
