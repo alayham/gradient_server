@@ -7,6 +7,10 @@ dependencies:
   - feeds:feeds
   - views_rss:views_rss
   - views_rss:views_rss_core
+  - antibot:antibot
+  - honeypot:honeypot
+  - search_api_solr:search_api_solr_admin
+  - facets:facets
   - core:node
   - core:taxonomy
 install:
@@ -33,9 +37,15 @@ install:
   - views
   - views_ui
 
+  - antibot
+  - facets
   - feeds
   - views_rss
   - views_rss_core
+  - honeypot
+  - search_api
+  - search_api_solr
+  - search_api_solr_admin
 themes:
   - bartik
   - seven
