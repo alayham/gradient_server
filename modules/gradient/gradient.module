@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Contains gradient.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function gradient_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the gradient module.
+    case 'help.page.gradient':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Gradient') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function gradient_theme() {
+  $theme = [];
+  $theme['gradient'] = [
+    'render element' => 'elements',
+    'file' => 'gradient.page.inc',
+    'template' => 'gradient',
+  ];
+  $theme['gradient_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'gradient.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function gradient_theme_suggestions_gradient(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#gradient'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'gradient__' . $sanitized_view_mode;
+  $suggestions[] = 'gradient__' . $entity->bundle();
+  $suggestions[] = 'gradient__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'gradient__' . $entity->id();
+  $suggestions[] = 'gradient__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}

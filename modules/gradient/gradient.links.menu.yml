@@ -1,0 +1,17 @@
+
+# Gradient menu items definition
+entity.gradient.collection:
+  title: 'Gradient list'
+  route_name: entity.gradient.collection
+  description: 'List Gradient entities'
+  parent: system.admin_content
+  weight: 100
+
+
+# Gradient type menu items definition
+entity.gradient_type.collection:
+  title: 'Gradient types'
+  route_name: entity.gradient_type.collection
+  description: 'List Gradient type (bundles)'
+  parent: system.admin_structure
+  weight: 99

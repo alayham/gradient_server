@@ -1,0 +1,22 @@
+# Gradient routing definition
+
+entity.gradient.canonical:
+  route_name: entity.gradient.canonical
+  base_route: entity.gradient.canonical
+  title: 'View'
+
+entity.gradient.edit_form:
+  route_name: entity.gradient.edit_form
+  base_route: entity.gradient.canonical
+  title: 'Edit'
+
+entity.gradient.version_history:
+  route_name: entity.gradient.version_history
+  base_route: entity.gradient.canonical
+  title: 'Revisions'
+
+entity.gradient.delete_form:
+  route_name:  entity.gradient.delete_form
+  base_route:  entity.gradient.canonical
+  title: Delete
+  weight: 10

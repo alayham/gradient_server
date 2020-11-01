@@ -1,0 +1,10 @@
+entity.gradient.add_form:
+  route_name: entity.gradient.add_page
+  title: 'Add Gradient'
+  appears_on:
+    - entity.gradient.collection
+entity.gradient_type.add_form:
+  route_name: entity.gradient_type.add_form
+  title: 'Add Gradient type'
+  appears_on:
+    - entity.gradient_type.collection

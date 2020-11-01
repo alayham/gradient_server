@@ -1,0 +1,33 @@
+add gradient entities:
+  title: 'Create new Gradient entities'
+
+administer gradient entities:
+  title: 'Administer Gradient entities'
+  description: 'Allow to access the administration form to configure Gradient entities.'
+  restrict access: true
+
+delete gradient entities:
+  title: 'Delete Gradient entities'
+
+edit gradient entities:
+  title: 'Edit Gradient entities'
+
+view published gradient entities:
+  title: 'View published Gradient entities'
+
+view unpublished gradient entities:
+  title: 'View unpublished Gradient entities'
+
+view all gradient revisions:
+  title: 'View all Gradient revisions'
+
+revert all gradient revisions:
+  title: 'Revert all Gradient revisions'
+  description: 'Role requires permission <em>view Gradient revisions</em> and <em>edit rights</em> for gradient entities in question or <em>administer gradient entities</em>.'
+
+delete all gradient revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Gradient revisions</em> and <em>delete rights</em> for gradient entities in question or <em>administer gradient entities</em>.'
+
+permission_callbacks:
+  - \Drupal\gradient\GradientPermissions::generatePermissions
