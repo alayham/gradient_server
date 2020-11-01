@@ -1,15 +1,16 @@
+uuid: 0c1b458e-64ed-44ab-a43e-45ad920428fa
 langcode: en
 status: true
 dependencies:
   module:
-    - feeds
-    - node
-id: node.feeds
-field_name: feeds
-entity_type: node
+    - gradient
+    - source
+id: gradient.sources
+field_name: sources
+entity_type: gradient
 type: entity_reference
 settings:
-  target_type: feeds_feed
+  target_type: source
 module: core
 locked: false
 cardinality: -1

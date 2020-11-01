@@ -1,3 +1,4 @@
+uuid: db643b83-9774-4a28-abed-e691fe58fc85
 langcode: en
 status: true
 dependencies:
@@ -10,6 +11,8 @@ dependencies:
     - node.type.item
   module:
     - node
+_core:
+  default_config_hash: MyoTYl3TJ7TrlAqGV4477u1aJ5WnDF0hoRHkLHaZHcU
 id: rss
 label: 'RSS Feed'
 description: ''
@@ -68,14 +71,6 @@ mappings:
     settings:
       language: null
   -
-    target: source
-    map:
-      target_id: 'parent:fid'
-    settings:
-      language: ''
-      reference_by: fid
-      autocreate: 0
-  -
     target: tags
     map:
       target_id: tags
@@ -99,3 +94,11 @@ mappings:
     unique:
       url: '1'
     settings: {  }
+  -
+    target: source
+    map:
+      target_id: 'parent:source_entity'
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false

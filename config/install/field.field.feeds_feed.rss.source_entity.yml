@@ -1,28 +1,29 @@
+uuid: e9e38e83-01d0-4b61-a898-af10fa845612
 langcode: en
 status: true
 dependencies:
   config:
     - feeds.feed_type.rss
-    - field.storage.feeds_feed.category
-    - taxonomy.vocabulary.categories
-id: feeds_feed.rss.category
-field_name: category
+    - field.storage.feeds_feed.source_entity
+    - source.source_type.website
+id: feeds_feed.rss.source_entity
+field_name: source_entity
 entity_type: feeds_feed
 bundle: rss
-label: Category
+label: Source entity
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:source'
   handler_settings:
     target_bundles:
-      categories: categories
+      website: website
     sort:
       field: name
-      direction: asc
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

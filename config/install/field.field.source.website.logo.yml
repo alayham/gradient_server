@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - feeds.feed_type.rss
-    - field.storage.feeds_feed.logo
+    - field.storage.source.logo
+    - source.source_type.website
   module:
     - image
-id: feeds_feed.rss.logo
+id: source.website.logo
 field_name: logo
-entity_type: feeds_feed
-bundle: rss
-label: 'Source logo'
+entity_type: source
+bundle: website
+label: Logo
 description: ''
 required: false
 translatable: false
@@ -21,7 +21,7 @@ settings:
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: 800x800
-  min_resolution: 100x100
+  min_resolution: 150x150
   alt_field: false
   alt_field_required: true
   title_field: false

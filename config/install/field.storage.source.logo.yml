@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   module:
-    - feeds
     - file
     - image
-id: feeds_feed.logo
+    - source
+id: source.logo
 field_name: logo
-entity_type: feeds_feed
+entity_type: source
 type: image
 settings:
   uri_scheme: public

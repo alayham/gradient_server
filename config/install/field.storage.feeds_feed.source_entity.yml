@@ -1,15 +1,16 @@
+uuid: 7af14f32-7173-4e50-b282-9400d4bec536
 langcode: en
 status: true
 dependencies:
   module:
     - feeds
-    - taxonomy
-id: feeds_feed.category
-field_name: category
+    - source
+id: feeds_feed.source_entity
+field_name: source_entity
 entity_type: feeds_feed
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: source
 module: core
 locked: false
 cardinality: 1

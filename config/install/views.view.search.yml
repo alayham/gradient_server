@@ -1,3 +1,4 @@
+uuid: 721d092a-5a54-422c-b98e-2550fad16e1b
 langcode: en
 status: true
 dependencies:
@@ -8,7 +9,6 @@ dependencies:
   module:
     - link
     - search_api
-    - user
 id: search
 label: search
 module: views
@@ -24,9 +24,8 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
-        options:
-          perm: 'access content'
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
@@ -43,21 +42,16 @@ display:
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: false
+          expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: mini
         options:
           items_per_page: 25
           offset: 0
           id: 0
           total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -66,20 +60,17 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 9
+          tags:
+            previous: ‹‹
+            next: ››
       style:
         type: default
       row:
         type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
       fields:
         link:
           id: link
-          table: search_api_datasource_content_entity_node
+          table: search_api_index_content
           field: link
           relationship: none
           group_type: group
@@ -150,7 +141,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-          entity_type: node
           plugin_id: search_api_field
         title:
           id: title
@@ -167,7 +157,7 @@ display:
             make_link: true
             path: '{{ link }}'
             absolute: false
-            external: true
+            external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
@@ -271,7 +261,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           link_to_item: false
-          use_highlighting: true
+          use_highlighting: false
           multi_type: separator
           multi_separator: ', '
           plugin_id: search_api
@@ -289,13 +279,13 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: 'Search for:'
+            label: 'Search for'
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: search_api_fulltext
+            identifier: s
             required: true
             remember: false
             multiple: false
@@ -304,7 +294,7 @@ display:
               anonymous: '0'
               administrator: '0'
               gradient_user: '0'
-            placeholder: 'Enter a search query'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -319,88 +309,9 @@ display:
             group_items: {  }
           parse_mode: terms
           min_length: null
-          fields:
-            - body
-            - title
+          fields: {  }
           plugin_id: search_api_fulltext
-        type:
-          id: type
-          table: search_api_index_content
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value:
-            item: item
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          plugin_id: search_api_options
-      sorts:
-        search_api_relevance:
-          id: search_api_relevance
-          table: search_api_index_content
-          field: search_api_relevance
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: true
-          expose:
-            label: Relevance
-          plugin_id: search_api
-        created:
-          id: created
-          table: search_api_index_content
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: true
-          expose:
-            label: 'Post date'
-          plugin_id: search_api
-        changed:
-          id: changed
-          table: search_api_index_content
-          field: changed
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: true
-          expose:
-            label: 'Aggregator update'
-          plugin_id: search_api
+      sorts: {  }
       title: Search
       header: {  }
       footer: {  }
@@ -415,9 +326,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - 'url.query_args:sort_by'
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.link'
         - 'config:search_api.index.content'
@@ -440,9 +349,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - 'url.query_args:sort_by'
         - 'user.node_grants:view'
-        - user.permissions
       tags:
         - 'config:field.storage.node.link'
         - 'config:search_api.index.content'
