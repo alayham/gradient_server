@@ -1,0 +1,10 @@
+entity.source.add_form:
+  route_name: entity.source.add_page
+  title: 'Add Source'
+  appears_on:
+    - entity.source.collection
+entity.source_type.add_form:
+  route_name: entity.source_type.add_form
+  title: 'Add Source type'
+  appears_on:
+    - entity.source_type.collection

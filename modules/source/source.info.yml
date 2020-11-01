@@ -1,0 +1,7 @@
+name: 'source'
+type: module
+description: 'Content sources entity'
+package: 'Gradient'
+core_version_requirement: ^9
+dependencies:
+  - feeds:feeds

@@ -1,0 +1,33 @@
+add source entities:
+  title: 'Create new Source entities'
+
+administer source entities:
+  title: 'Administer Source entities'
+  description: 'Allow to access the administration form to configure Source entities.'
+  restrict access: true
+
+delete source entities:
+  title: 'Delete Source entities'
+
+edit source entities:
+  title: 'Edit Source entities'
+
+view published source entities:
+  title: 'View published Source entities'
+
+view unpublished source entities:
+  title: 'View unpublished Source entities'
+
+view all source revisions:
+  title: 'View all Source revisions'
+
+revert all source revisions:
+  title: 'Revert all Source revisions'
+  description: 'Role requires permission <em>view Source revisions</em> and <em>edit rights</em> for source entities in question or <em>administer source entities</em>.'
+
+delete all source revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Source revisions</em> and <em>delete rights</em> for source entities in question or <em>administer source entities</em>.'
+
+permission_callbacks:
+  - \Drupal\source\SourcePermissions::generatePermissions

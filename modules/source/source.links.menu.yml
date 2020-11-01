@@ -1,0 +1,17 @@
+
+# Source menu items definition
+entity.source.collection:
+  title: 'Source list'
+  route_name: entity.source.collection
+  description: 'List Source entities'
+  parent: system.admin_content
+  weight: 100
+
+
+# Source type menu items definition
+entity.source_type.collection:
+  title: 'Source types'
+  route_name: entity.source_type.collection
+  description: 'List Source type (bundles)'
+  parent: system.admin_structure
+  weight: 99
