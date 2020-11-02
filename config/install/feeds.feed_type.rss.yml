@@ -1,18 +1,18 @@
-uuid: db643b83-9774-4a28-abed-e691fe58fc85
+uuid: 1802b259-bbc6-49d6-9d5b-61139192099f
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.item.body
+    - field.field.node.item.feed_entity
     - field.field.node.item.feeds_item
     - field.field.node.item.link
-    - field.field.node.item.source
     - field.field.node.item.tags
     - node.type.item
   module:
     - node
 _core:
-  default_config_hash: MyoTYl3TJ7TrlAqGV4477u1aJ5WnDF0hoRHkLHaZHcU
+  default_config_hash: sXQHj_4x-Iv4apgGzmX5IVZfx_f9A_TCAzS9dGafTz0
 id: rss
 label: 'RSS Feed'
 description: ''
@@ -52,7 +52,7 @@ mappings:
   -
     target: created
     map:
-      value: 'parent:created'
+      value: timestamp
     settings:
       language: null
       timezone: UTC
@@ -84,8 +84,8 @@ mappings:
       value: description
       summary: '----'
     settings:
-      language: null
-      format: plain_text
+      language: ''
+      format: basic_html
   -
     target: feeds_item
     map:
@@ -93,12 +93,13 @@ mappings:
       guid: guid
     unique:
       url: '1'
+      guid: '1'
     settings: {  }
   -
-    target: source
+    target: feed_entity
     map:
-      target_id: 'parent:source_entity'
+      target_id: 'parent:fid'
     settings:
-      language: null
-      reference_by: name
-      autocreate: false
+      language: ''
+      reference_by: fid
+      autocreate: 0

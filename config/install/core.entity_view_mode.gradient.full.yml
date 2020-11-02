@@ -1,0 +1,9 @@
+langcode: en
+status: false
+dependencies:
+  module:
+    - gradient
+id: gradient.full
+label: 'Full content'
+targetEntityType: gradient
+cache: true

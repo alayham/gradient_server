@@ -1,0 +1,55 @@
+uuid: 6ad82a08-8f67-462c-9097-6fffa21d0310
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.source.website.categories
+    - field.field.source.website.logo
+    - field.field.source.website.url
+    - image.style.thumbnail
+    - source.source_type.website
+  module:
+    - image
+    - link
+id: source.website.default
+targetEntityType: source
+bundle: website
+mode: default
+content:
+  categories:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  logo:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  user_id: true

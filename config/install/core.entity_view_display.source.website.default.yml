@@ -1,0 +1,63 @@
+uuid: 4f2f03e5-0d8f-4f35-afd8-417a74c785b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.source.website.categories
+    - field.field.source.website.logo
+    - field.field.source.website.url
+    - source.source_type.website
+  module:
+    - image
+    - link
+id: source.website.default
+targetEntityType: source
+bundle: website
+mode: default
+content:
+  categories:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  logo:
+    type: image
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  name:
+    label: visually_hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  source_items_entity_view_1:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url:
+    type: link
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true
+  user_id: true

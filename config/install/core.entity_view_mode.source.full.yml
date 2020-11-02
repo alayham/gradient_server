@@ -1,0 +1,9 @@
+langcode: en
+status: false
+dependencies:
+  module:
+    - source
+id: source.full
+label: 'Full content'
+targetEntityType: source
+cache: true

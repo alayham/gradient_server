@@ -9,7 +9,6 @@ dependencies:
   config:
     - field.storage.node.body
     - field.storage.node.link
-    - field.storage.node.source
     - field.storage.node.tags
     - search_api.server.solr
 third_party_settings:
@@ -51,7 +50,7 @@ third_party_settings:
       collection: ''
       timezone: ''
 _core:
-  default_config_hash: DReWng5O_EbaZUS0kI89eQVmvPW8tiOlnDjwvwk-src
+  default_config_hash: 5-xsE05cg_50nZacN65HEUmRohsbuPjB2CHDnXcNWjQ
 id: content
 name: Content
 description: ''
@@ -104,15 +103,6 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
-  source:
-    label: Source
-    datasource_id: 'entity:node'
-    property_path: source
-    type: text
-    boost: !!float 21
-    dependencies:
-      config:
-        - field.storage.node.source
   status:
     label: Published
     datasource_id: 'entity:node'
@@ -201,7 +191,6 @@ processor_settings:
     fields:
       - body
       - link
-      - source
       - title
       - type
     title: true

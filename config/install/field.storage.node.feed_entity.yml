@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   module:
+    - feeds
     - node
-    - source
-id: node.source
-field_name: source
+id: node.feed_entity
+field_name: feed_entity
 entity_type: node
 type: entity_reference
 settings:
-  target_type: source
+  target_type: feeds_feed
 module: core
 locked: false
 cardinality: 1
