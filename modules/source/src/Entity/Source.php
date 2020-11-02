@@ -19,6 +19,13 @@ use Drupal\user\UserInterface;
  * @ContentEntityType(
  *   id = "source",
  *   label = @Translation("Source"),
+ *   label_collection = @Translation("Sources"),
+ *   label_singular = @Translation("source"),
+ *   label_plural = @Translation("sources"),
+ *   label_count = @PluralTranslation(
+ *     singular = "@count source",
+ *     plural = "@count sources"
+ *   ),
  *   bundle_label = @Translation("Source type"),
  *   handlers = {
  *     "storage" = "Drupal\source\SourceStorage",
@@ -60,6 +67,7 @@ use Drupal\user\UserInterface;
  *     "revision_created" = "revision_timestamp",
  *     "revision_log_message" = "revision_log"
  *   },
+ *   common_reference_target = TRUE,
  *   links = {
  *     "canonical" = "/source/{source}",
  *     "add-page" = "/source/add",

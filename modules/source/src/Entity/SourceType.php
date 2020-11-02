@@ -10,6 +10,13 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  * @ConfigEntityType(
  *   id = "source_type",
  *   label = @Translation("Source type"),
+ *   label_collection = @Translation("Source types"),
+ *   label_singular = @Translation("source type"),
+ *   label_plural = @Translation("source types"),
+ *   label_count = @PluralTranslation(
+ *     singular = "@count source type",
+ *     plural = "@count source types",
+ *   ),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "list_builder" = "Drupal\source\SourceTypeListBuilder",
@@ -28,7 +35,6 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
- *     "uuid" = "uuid"
  *   },
  *   links = {
  *     "canonical" = "/admin/structure/source_type/{source_type}",
