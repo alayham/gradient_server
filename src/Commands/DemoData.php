@@ -35,11 +35,11 @@ class DemoData extends DrushCommands {
       'vid' => 'categories',
       'uid' => 1,
     ]);
-    $term1->save();
+    $term3->save();
     $source1=Source::create([
       'type' => 'website',
       'name' => '21 Century Wire',
-      'url' => ['url' => 'http://21stcenturywire.com'],
+      'url' => 'http://21stcenturywire.com',
       'categories' => [$term1],
       'user_id' => 1,
     ]);
@@ -58,7 +58,7 @@ class DemoData extends DrushCommands {
     $source2 = Source::create([
       'type' => 'website',
       'name' => 'Dissident Voice',
-      'url' => ['url' => 'http://dissidentvoice.org'],
+      'url' => 'http://dissidentvoice.org',
       'categories' => [$term1],
       'user_id' => 1,
     ]);
@@ -77,7 +77,7 @@ class DemoData extends DrushCommands {
     $source3 = Source::create([
       'type' => 'website',
       'name' => 'Corbett Report',
-      'url' => ['url' => 'http://corbettreport.com'],
+      'url' => 'http://corbettreport.com',
       'categories' => [$term2],
       'user_id' => 1,
     ]);
