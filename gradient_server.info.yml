@@ -15,6 +15,7 @@ dependencies:
   - facets:facets
   - core:node
   - core:taxonomy
+  - eva:eva
 install:
   - node
   - block
@@ -50,6 +51,7 @@ install:
   - search_api
   - search_api_solr
   - search_api_solr_admin
+  - eva
 
   - source
   - gradient
