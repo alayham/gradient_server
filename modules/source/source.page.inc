@@ -27,4 +27,13 @@ function template_preprocess_source(array &$variables) {
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+
+  $variables['source'] = [
+    'url' => $source->url->first()->getUrl()->toString(),
+    'name' => $source->label(),
+    'gradient_url' => $source->toUrl(),
+  ];
+  if ($source->logo->entity) {
+    $variables['source']['logo'] = $source->logo->entity->createFileUrl();
+  }
 }

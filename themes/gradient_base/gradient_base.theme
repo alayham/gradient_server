@@ -1,0 +1,26 @@
+<?php
+
+function gradient_base_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if($node->hasField('feed_entity')) {
+    $manager = \Drupal::entityTypeManager();
+    $feed = $node->feed_entity->entity;
+    if ($feed) {
+      $variables['feed'] = [
+        'name' => $feed->label(),
+        'id' => $feed->id(),
+        'url' => '/feed/' . $feed->id(),
+      ];
+      $source = $feed->source_entity->entity;
+      if ($source) {
+        $variables['source'] = [
+          'name' => $manager->getViewBuilder($source->getEntityTypeId())->view($source,'name'),
+        ];
+        if($source->logo->entity) {
+          $variables['source']['logo'] = $manager->getViewBuilder($source->getEntityTypeId())->view($source,'logo');
+        }
+      }
+    } else {
+    }
+  }
+}

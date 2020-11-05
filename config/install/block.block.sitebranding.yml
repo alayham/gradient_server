@@ -5,15 +5,18 @@ dependencies:
     - system
   theme:
     - gradient_base
-id: mainpagecontent
+id: sitebranding
 theme: gradient_base
-region: content
-weight: 1
+region: header
+weight: 0
 provider: null
-plugin: system_main_block
+plugin: system_branding_block
 settings:
-  id: system_main_block
-  label: 'Main page content'
+  id: system_branding_block
+  label: 'Site branding'
   provider: system
   label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
 visibility: {  }

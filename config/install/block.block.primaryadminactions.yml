@@ -1,11 +1,10 @@
-uuid: bbedc38f-cb96-450c-88fe-6f1837d7e785
 langcode: en
 status: true
 dependencies:
   theme:
-    - bartik
+    - gradient_base
 id: primaryadminactions
-theme: bartik
+theme: gradient_base
 region: content
 weight: 0
 provider: null

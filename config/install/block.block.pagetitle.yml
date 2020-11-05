@@ -1,11 +1,10 @@
-uuid: 3d36c141-1c3a-4a01-87c8-1f327f0d3fce
 langcode: en
 status: true
 dependencies:
   theme:
-    - bartik
+    - gradient_base
 id: pagetitle
-theme: bartik
+theme: gradient_base
 region: content
 weight: 0
 provider: null

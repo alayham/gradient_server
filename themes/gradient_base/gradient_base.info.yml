@@ -1,0 +1,25 @@
+name: Gradient base theme
+type: theme
+description: 'Basic theme for the Gradient Server distro'
+core_version_requirement: ^9
+base theme: classy
+logo: images/logo.png
+
+libraries:
+  - gradient_base/bootstrap
+  - gradient_base/global-styling
+
+regions:
+  top_header: 'Top header'
+  header: Header
+  header_form: 'Header form'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  page_top: 'Page top'
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: 'Page footer'
+

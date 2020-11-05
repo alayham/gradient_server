@@ -56,5 +56,5 @@ install:
   - source
   - gradient
 themes:
-  - bartik
+  - gradient_base
   - seven
