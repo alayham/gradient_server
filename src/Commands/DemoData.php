@@ -7,6 +7,7 @@ use Drupal\feeds\Entity\Feed;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\source\Entity\Source;
+use Drupal\file\Entity\File;
 
 class DemoData extends DrushCommands {
 
@@ -36,9 +37,14 @@ class DemoData extends DrushCommands {
       'uid' => 1,
     ]);
     $term3->save();
+
+    file_put_contents('public://logo1.jpg', file_get_contents('https://news.alayham.com/sites/default/files/logo/1538728_751733994851906_2075983683_n.png'));
+    $logo1 = File::create(['uri' => 'public://logo1.jpg']);
+    $logo1->save();
     $source1=Source::create([
       'type' => 'website',
       'name' => '21 Century Wire',
+      'logo' => $logo1,
       'url' => 'http://21stcenturywire.com',
       'categories' => [$term1],
       'user_id' => 1,
@@ -55,9 +61,13 @@ class DemoData extends DrushCommands {
     ]);
     $feed1->save();
 
+    file_put_contents('public://logo2.jpg', file_get_contents('https://news.alayham.com/sites/default/files/logo/DevNullPhantom160-150x150.jpg'));
+    $logo1 = File::create(['uri' => 'public://logo2.jpg']);
+    $logo1->save();
     $source2 = Source::create([
       'type' => 'website',
       'name' => 'Dissident Voice',
+      'logo' => $logo2,
       'url' => 'http://dissidentvoice.org',
       'categories' => [$term1],
       'user_id' => 1,
@@ -74,9 +84,13 @@ class DemoData extends DrushCommands {
     ]);
     $feed2->save();
 
+    file_put_contents('public://logo3.jpg', file_get_contents('https://news.alayham.com/sites/default/files/logo/JamesCorbett4.jpg'));
+    $logo3 = File::create(['uri' => 'public://logo3.jpg']);
+    $logo3->save();
     $source3 = Source::create([
       'type' => 'website',
       'name' => 'Corbett Report',
+      'logo' => $logo3,
       'url' => 'http://corbettreport.com',
       'categories' => [$term2],
       'user_id' => 1,
@@ -92,7 +106,7 @@ class DemoData extends DrushCommands {
       'uid' => 1,
     ]);
     $feed3->save();  
-    $feed3 = Feed::create([
+    $feed4 = Feed::create([
       'type' => 'rss',
       'title' => 'Corbett Report articles',
       'uid' => 1,
@@ -101,6 +115,6 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source3],
       'uid' => 1,
     ]);
-    $feed3->save();  
+    $feed4->save();  
   }
 }
