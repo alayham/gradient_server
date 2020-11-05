@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.source.name
+    - field.field.source.website.categories
+    - field.field.source.website.logo
+    - field.field.source.website.url
+    - source.source_type.website
+  module:
+    - link
+id: source.website.name
+targetEntityType: source
+bundle: website
+mode: name
+content:
+  name:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  categories: true
+  langcode: true
+  logo: true
+  search_api_excerpt: true
+  source_items_entity_view_1: true
+  user_id: true
+  url: true

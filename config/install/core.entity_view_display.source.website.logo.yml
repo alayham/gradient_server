@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.source.logo
     - field.field.source.website.categories
     - field.field.source.website.logo
     - field.field.source.website.url
@@ -9,22 +10,14 @@ dependencies:
   module:
     - image
     - link
-id: source.website.default
+id: source.website.logo
 targetEntityType: source
 bundle: website
-mode: default
+mode: logo
 content:
-  categories:
-    type: entity_reference_label
-    weight: 1
-    region: content
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
   logo:
     type: image
-    weight: 2
+    weight: 1
     region: content
     label: hidden
     settings:
@@ -32,31 +25,17 @@ content:
       image_link: ''
     third_party_settings: {  }
   name:
-    label: visually_hidden
+    label: hidden
     type: string
     weight: 0
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  source_items_entity_view_1:
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  url:
-    type: link
-    weight: 3
-    region: content
-    label: inline
-    settings:
-      trim_length: ''
-      url_only: true
-      url_plain: true
-      rel: ''
-      target: ''
-    third_party_settings: {  }
 hidden:
+  categories: true
   langcode: true
   search_api_excerpt: true
+  source_items_entity_view_1: true
   user_id: true
+  url: true

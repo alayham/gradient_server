@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - source
+id: source.logo
+label: logo
+targetEntityType: source
+cache: true
