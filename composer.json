@@ -14,7 +14,8 @@
         "drupal/search_api": "^1.18",
         "drupal/search_api_solr": "^4.1",
         "drupal/views_rss": "^2.0",
-        "drush/drush": "^10.4"
+        "drush/drush": "^10.4",
+        "twbs/bootstrap": "^4.5"
     },
     "authors": [
         {
@@ -24,5 +25,10 @@
     ],
     "homepage": "http://www.alayham.com",
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "scripts": {
+        "post-update-cmd": [
+           "cp -R vendor/twbs/bootstrap web/libraries/"
+        ]
+    }
 }
