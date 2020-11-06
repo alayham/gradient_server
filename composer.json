@@ -28,7 +28,7 @@
     "prefer-stable": true,
     "scripts": {
         "post-update-cmd": [
-           "cp -R vendor/twbs/bootstrap web/libraries/"
+           "cp -R vendor/twbs/bootstrap/dist web/libraries/"
         ]
     }
 }

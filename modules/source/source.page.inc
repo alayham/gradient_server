@@ -31,7 +31,7 @@ function template_preprocess_source(array &$variables) {
   $variables['source'] = [
     'url' => $source->url->first()->getUrl()->toString(),
     'name' => $source->label(),
-    'gradient_url' => $source->toUrl(),
+    'canonical' => $source->toUrl(),
   ];
   if ($source->logo->entity) {
     $variables['source']['logo'] = $source->logo->entity->createFileUrl();

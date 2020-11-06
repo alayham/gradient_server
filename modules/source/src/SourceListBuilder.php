@@ -30,7 +30,7 @@ class SourceListBuilder extends EntityListBuilder {
     $row['id'] = $entity->id();
     $row['name'] = Link::createFromRoute(
       $entity->label(),
-      'entity.source.edit_form',
+      'entity.source.canonical',
       ['source' => $entity->id()]
     );
     return $row + parent::buildRow($entity);

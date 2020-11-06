@@ -1,5 +1,6 @@
 <?php
 
+
 function gradient_base_preprocess_node(&$variables) {
   $node = $variables['node'];
   if($node->hasField('feed_entity')) {
@@ -7,9 +8,7 @@ function gradient_base_preprocess_node(&$variables) {
     $feed = $node->feed_entity->entity;
     if ($feed) {
       $variables['feed'] = [
-        'name' => $feed->label(),
-        'id' => $feed->id(),
-        'url' => '/feed/' . $feed->id(),
+        'name' => $manager->getViewBuilder($feed->getEntityTypeId())->view($feed,'name'),
       ];
       $source = $feed->source_entity->entity;
       if ($source) {
@@ -20,7 +19,6 @@ function gradient_base_preprocess_node(&$variables) {
           $variables['source']['logo'] = $manager->getViewBuilder($source->getEntityTypeId())->view($source,'logo');
         }
       }
-    } else {
     }
   }
 }

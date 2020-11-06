@@ -1,0 +1,9 @@
+langcode: en
+status: false
+dependencies:
+  module:
+    - feeds
+id: feeds_feed.name
+label: 'Feed name'
+targetEntityType: feeds_feed
+cache: true

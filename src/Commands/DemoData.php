@@ -62,8 +62,8 @@ class DemoData extends DrushCommands {
     $feed1->save();
 
     file_put_contents('public://logo2.jpg', file_get_contents('https://news.alayham.com/sites/default/files/logo/DevNullPhantom160-150x150.jpg'));
-    $logo1 = File::create(['uri' => 'public://logo2.jpg']);
-    $logo1->save();
+    $logo2 = File::create(['uri' => 'public://logo2.jpg']);
+    $logo2->save();
     $source2 = Source::create([
       'type' => 'website',
       'name' => 'Dissident Voice',
@@ -84,37 +84,60 @@ class DemoData extends DrushCommands {
     ]);
     $feed2->save();
 
-    file_put_contents('public://logo3.jpg', file_get_contents('https://news.alayham.com/sites/default/files/logo/JamesCorbett4.jpg'));
+    file_put_contents('public://logo3.jpg', file_get_contents('https://i2.wp.com/freemanbeyondthewall.com/wp-content/uploads/2018/05/latest-pic.jpg'));
     $logo3 = File::create(['uri' => 'public://logo3.jpg']);
     $logo3->save();
     $source3 = Source::create([
       'type' => 'website',
-      'name' => 'Corbett Report',
+      'name' => 'Peter R. Quinones',
       'logo' => $logo3,
-      'url' => 'http://corbettreport.com',
+      'url' => 'https://freemanbeyondthewall.com',
       'categories' => [$term2],
       'user_id' => 1,
     ]);
     $source3->save();
     $feed3 = Feed::create([
       'type' => 'rss',
-      'title' => 'Corbett Report podcasts',
+      'title' => 'Free Man Beyond the Wall',
       'uid' => 1,
       'status' => 1,
-      'source' => 'http://feeds.feedburner.com/CorbettreportcomPodcast',
+      'source' => 'https://liviucerchez.com/castpod/feed/podcast',
       'source_entity' => [$source3],
       'uid' => 1,
     ]);
     $feed3->save();  
     $feed4 = Feed::create([
       'type' => 'rss',
-      'title' => 'Corbett Report articles',
+      'title' => 'Peter R. Quinones website feed',
       'uid' => 1,
       'status' => 1,
-      'source' => 'http://feeds.feedburner.com/corbettreport_articles',
+      'source' => 'https://freemanbeyondthewall.com/feed',
       'source_entity' => [$source3],
       'uid' => 1,
     ]);
     $feed4->save();  
+
+    file_put_contents('public://logo4.jpg', file_get_contents('https://eliasalias.com/wp-content/uploads/2015/06/James_Corbett.jpg'));
+    $logo4 = File::create(['uri' => 'public://logo4.jpg']);
+    $logo4->save();
+    $source4 = Source::create([
+      'type' => 'website',
+      'name' => 'The Corbett Report',
+      'logo' => $logo4,
+      'url' => 'https://corbettreport.com',
+      'categories' => [$term2],
+      'user_id' => 1,
+    ]);
+    $source4->save();
+    $feed5 = Feed::create([
+      'type' => 'rss',
+      'title' => 'The corbett report website feed',
+      'uid' => 1,
+      'status' => 1,
+      'source' => 'https://corbettreport.com/feed',
+      'source_entity' => [$source4],
+      'uid' => 1,
+    ]);
+    $feed5->save();  
   }
 }

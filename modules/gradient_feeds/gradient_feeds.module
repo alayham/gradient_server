@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function gradient_feeds_theme_suggestions_feeds_feed(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#feeds_feed'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'feeds_feed__' . $sanitized_view_mode;
+  $suggestions[] = 'feeds_feed__' . $entity->bundle();
+  $suggestions[] = 'feeds_feed__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'feeds_feed__' . $entity->id();
+  $suggestions[] = 'feeds_feed__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+  

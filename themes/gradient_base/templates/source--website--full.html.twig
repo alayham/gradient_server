@@ -1,0 +1,34 @@
+{#
+/**
+ * @file source.html.twig
+ * Default theme implementation to present Source data.
+ *
+ * This template is used when viewing Source pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_source()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if source %}
+<div{{ attributes.addClass('source') }}>
+  <div class="row">
+    {% if content.logo %}
+    <div class="col-sm-3 col-md-2">
+      {{content.logo}}
+    </div>
+    <div class="col-sm-9 col-md-10">
+    {% else %}
+    <div class="col">
+    {% endif %}
+      {{content|without('logo', 'source_items_list')}}
+    </div>
+  </div> 
+</div>
+{{ content.source_items_list }}
+{% endif %}

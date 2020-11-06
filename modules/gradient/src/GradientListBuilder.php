@@ -30,7 +30,7 @@ class GradientListBuilder extends EntityListBuilder {
     $row['id'] = $entity->id();
     $row['name'] = Link::createFromRoute(
       $entity->label(),
-      'entity.gradient.edit_form',
+      'entity.gradient.canonical',
       ['gradient' => $entity->id()]
     );
     return $row + parent::buildRow($entity);

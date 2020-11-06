@@ -55,6 +55,7 @@ install:
 
   - source
   - gradient
+  - gradient_feeds
 themes:
-  - gradient_base
   - seven
+  - gradient_base
