@@ -31,6 +31,7 @@ use Drupal\user\UserInterface;
  *       "add" = "Drupal\gradient\Form\GradientForm",
  *       "edit" = "Drupal\gradient\Form\GradientForm",
  *       "delete" = "Drupal\gradient\Form\GradientDeleteForm",
+ *       "delete-multiple-confirm" = "Drupal\gradient\Form\GradientDeleteMultiple"
  *     },
  *     "route_provider" = {
  *       "html" = "Drupal\gradient\GradientHtmlRouteProvider",
@@ -64,6 +65,7 @@ use Drupal\user\UserInterface;
  *     "add-form" = "/gradient/add/{gradient_type}",
  *     "edit-form" = "/gradient/{gradient}/edit",
  *     "delete-form" = "/gradient/{gradient}/delete",
+ *     "delete-multiple-form" = "/admin/content/gradient/delete",
  *     "version-history" = "/gradient/{gradient}/revisions",
  *     "revision" = "/gradient/{gradient}/revisions/{gradient_revision}/view",
  *     "revision_revert" = "/gradient/{gradient}/revisions/{gradient_revision}/revert",

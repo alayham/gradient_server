@@ -3,7 +3,7 @@
 namespace Drupal\gradient;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\gradient\Entity\Gradient;
+use Drupal\gradient\Entity\GradientType;
 
 
 /**
@@ -26,7 +26,7 @@ class GradientPermissions{
   public function generatePermissions() {
     $perms = [];
 
-    foreach (Gradient::loadMultiple() as $type) {
+    foreach (GradientType::loadMultiple() as $type) {
       $perms += $this->buildPermissions($type);
     }
 
@@ -42,7 +42,7 @@ class GradientPermissions{
    * @return array
    *   An associative array of permission names and descriptions.
    */
-  protected function buildPermissions(Gradient $type) {
+  protected function buildPermissions(GradientType $type) {
     $type_id = $type->id();
     $type_params = ['%type_name' => $type->label()];
 

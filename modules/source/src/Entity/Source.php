@@ -39,6 +39,7 @@ use Drupal\user\UserInterface;
  *       "add" = "Drupal\source\Form\SourceForm",
  *       "edit" = "Drupal\source\Form\SourceForm",
  *       "delete" = "Drupal\source\Form\SourceDeleteForm",
+ *       "delete-multiple-confirm" = "Drupal\source\Form\SourceDeleteMultiple"
  *     },
  *     "route_provider" = {
  *       "html" = "Drupal\source\SourceHtmlRouteProvider",
@@ -74,6 +75,7 @@ use Drupal\user\UserInterface;
  *     "add-form" = "/source/add/{source_type}",
  *     "edit-form" = "/source/{source}/edit",
  *     "delete-form" = "/source/{source}/delete",
+ *     "delete-multiple-form" = "/admin/content/source/delete",
  *     "version-history" = "/source/{source}/revisions",
  *     "revision" = "/source/{source}/revisions/{source_revision}/view",
  *     "revision_revert" = "/source/{source}/revisions/{source_revision}/revert",

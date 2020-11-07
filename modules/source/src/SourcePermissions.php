@@ -3,7 +3,7 @@
 namespace Drupal\source;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\source\Entity\Source;
+use Drupal\source\Entity\SourceType;
 
 
 /**
@@ -26,7 +26,7 @@ class SourcePermissions{
   public function generatePermissions() {
     $perms = [];
 
-    foreach (Source::loadMultiple() as $type) {
+    foreach (SourceType::loadMultiple() as $type) {
       $perms += $this->buildPermissions($type);
     }
 
@@ -42,7 +42,7 @@ class SourcePermissions{
    * @return array
    *   An associative array of permission names and descriptions.
    */
-  protected function buildPermissions(Source $type) {
+  protected function buildPermissions(SourceType $type) {
     $type_id = $type->id();
     $type_params = ['%type_name' => $type->label()];
 
