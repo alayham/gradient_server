@@ -8,6 +8,7 @@ use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\source\Entity\Source;
 use Drupal\file\Entity\File;
+use Drupal\gradient\Entity\Gradient;
 
 class DemoData extends DrushCommands {
 
@@ -139,5 +140,26 @@ class DemoData extends DrushCommands {
       'uid' => 1,
     ]);
     $feed5->save();  
+
+    Gradient::create([
+      'type' => 'gradient',
+      'name' => 'First Gradient',
+      'sources' => [$source1, $source2],
+    ])->save();
+    Gradient::create([
+      'type' => 'gradient',
+      'name' => 'Second Gradient',
+      'sources' => [$source2, $source3, $source4],
+    ])->save();
+    Gradient::create([
+      'type' => 'gradient',
+      'name' => 'Third Gradient',
+      'sources' => [$source1, $source4],
+    ])->save();
+    Gradient::create([
+      'type' => 'gradient',
+      'name' => 'Fourth Gradient',
+      'sources' => [$source1, $source2, $source3, $source4],
+    ])->save();
   }
 }
