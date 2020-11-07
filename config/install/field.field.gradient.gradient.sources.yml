@@ -4,24 +4,21 @@ dependencies:
   config:
     - field.storage.gradient.sources
     - gradient.gradient_type.gradient
-    - source.source_type.website
 id: gradient.gradient.sources
 field_name: sources
 entity_type: gradient
 bundle: gradient
-label: 'Source Entities'
+label: Sources
 description: ''
 required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:source'
+  handler: views
   handler_settings:
-    target_bundles:
-      website: website
-    sort:
-      field: _none
-    auto_create: false
-    auto_create_bundle: ''
+    view:
+      view_name: source_list
+      display_name: entity_reference_1
+      arguments: {  }
 field_type: entity_reference

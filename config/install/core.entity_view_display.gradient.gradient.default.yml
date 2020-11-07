@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.gradient.gradient.sources
+    - gradient.gradient_type.gradient
+id: gradient.gradient.default
+targetEntityType: gradient
+bundle: gradient
+mode: default
+content:
+  gradient_items_entity_view_1:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  sources:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: above
+    settings:
+      view_mode: name
+      link: false
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true
+  user_id: true

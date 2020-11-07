@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.gradient.gradient.sources
+    - gradient.gradient_type.gradient
+id: gradient.gradient.default
+targetEntityType: gradient
+bundle: gradient
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: -10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  sources:
+    type: options_buttons
+    weight: -5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  user_id: true
