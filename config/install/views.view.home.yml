@@ -7,6 +7,8 @@ dependencies:
   module:
     - node
     - user
+_core:
+  default_config_hash: RkpeWw-1QfpIevnd0nUNQas_5uLusWzp41yjnJVoNSQ
 id: home
 label: Home
 module: views
@@ -192,7 +194,7 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
-      title: Home
+      title: News
       header: {  }
       footer: {  }
       empty: {  }
@@ -215,10 +217,15 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: home
+      path: news
       menu:
         type: normal
-        title: Home
+        title: News
+        description: ''
+        expanded: true
+        parent: ''
+        weight: 5
+        context: '0'
         menu_name: main
     cache_metadata:
       max-age: -1
