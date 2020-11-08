@@ -141,25 +141,85 @@ class DemoData extends DrushCommands {
     ]);
     $feed5->save();  
 
+    file_put_contents('public://logo5.jpg', file_get_contents('https://www.freedomsphoenix.com/Uploads/Graphics/001-0602071125-2009-22-x-29-Banner-copy.jpg'));
+    $logo5 = File::create(['uri' => 'public://logo5.jpg']);
+    $logo5->save();
+    $source5 = Source::create([
+      'type' => 'website',
+      'name' => 'Freedom\'s Phoenix',
+      'logo' => $logo5,
+      'url' => 'https://www.freedomsphoenix.com',
+      'categories' => [$term1],
+      'user_id' => 1,
+    ]);
+    $source4->save();
+
+    $feed6 = Feed::create([
+      'type' => 'rss',
+      'title' => 'Freedom\'s Phoenix Feature Articles',
+      'uid' => 1,
+      'status' => 1,
+      'source' => 'https://www.freedomsphoenix.com/RSS/RSS-Feed.xml?EdNo=001&Page=Art',
+      'source_entity' => [$source5],
+      'uid' => 1,
+    ]);
+    $feed6->save();  
+    $feed7 = Feed::create([
+      'type' => 'rss',
+      'title' => 'Freedom\'s Phoenix Editorials',
+      'uid' => 1,
+      'status' => 1,
+      'source' => 'https://www.freedomsphoenix.com/RSS/RSS-Feed.xml?EdNo=001&Page=Col',
+      'source_entity' => [$source5],
+      'uid' => 1,
+    ]);
+    $feed7->save();  
+    $feed8 = Feed::create([
+      'type' => 'rss',
+      'title' => 'Freedom\'s Phoenix Newsletter Headlines',
+      'uid' => 1,
+      'status' => 1,
+      'source' => 'https://www.freedomsphoenix.com/RSS/Top-News-Feed.xml',
+      'source_entity' => [$source5],
+      'uid' => 1,
+    ]);
+    $feed8->save();  
+    $feed9 = Feed::create([
+      'type' => 'rss',
+      'title' => 'Freedom\'s Phoenix Radio/TV Show Archives',
+      'uid' => 1,
+      'status' => 1,
+      'source' => 'https://www.freedomsphoenix.com/RSS/RSS-Feed.xml?EdNo=001&Page=Med',
+      'source_entity' => [$source5],
+      'uid' => 1,
+    ]);
+    $feed9->save();  
+
+
+
     Gradient::create([
       'type' => 'gradient',
       'name' => 'First Gradient',
-      'sources' => [$source1, $source2],
+      'sources' => [$source1, $source2, $source5],
+      'user_id' => 1,
     ])->save();
     Gradient::create([
       'type' => 'gradient',
       'name' => 'Second Gradient',
       'sources' => [$source2, $source3, $source4],
+      'user_id' => 1,
     ])->save();
     Gradient::create([
       'type' => 'gradient',
       'name' => 'Third Gradient',
       'sources' => [$source1, $source4],
+      'user_id' => 1,
     ])->save();
     Gradient::create([
       'type' => 'gradient',
       'name' => 'Fourth Gradient',
-      'sources' => [$source1, $source2, $source3, $source4],
+      'sources' => [$source1, $source2, $source3, $source4, $source5],
+      'user_id' => 1,
     ])->save();
   }
 }
