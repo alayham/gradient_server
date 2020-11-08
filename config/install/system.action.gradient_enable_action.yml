@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - gradient
+id: gradient_enable_action
+label: 'Enable gradient'
+type: gradient
+plugin: entity:publish_action:gradient
+configuration: {  }

@@ -4,7 +4,7 @@ dependencies:
   module:
     - source
 id: source_delete_action
-label: 'Delete content'
+label: 'Delete source'
 type: source
 plugin: entity:delete_action:source
 configuration: {  }

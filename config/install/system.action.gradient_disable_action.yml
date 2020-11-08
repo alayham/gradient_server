@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - gradient
+id: gradient_disable_action
+label: 'Disable gradient'
+type: gradient
+plugin: entity:unpublish_action:gradient
+configuration: {  }

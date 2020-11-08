@@ -4,7 +4,7 @@ dependencies:
   module:
     - source
 id: source_enable_action
-label: 'Enable content'
+label: 'Enable source'
 type: source
 plugin: entity:publish_action:source
 configuration: {  }
