@@ -208,31 +208,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  feed_1:
-    display_plugin: feed
-    id: feed_1
-    display_title: Feed
-    position: 2
-    display_options:
-      display_extenders: {  }
-      row:
-        type: node_rss
-      pager:
-        type: some
-      style:
-        type: rss
-      path: feed
-      displays:
-        default: default
-        page_1: page_1
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
   page_1:
     display_plugin: page
     id: page_1
