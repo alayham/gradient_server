@@ -25,10 +25,5 @@
     ],
     "homepage": "http://www.alayham.com",
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-update-cmd": [
-           "cp -R vendor/twbs/bootstrap/dist web/libraries/"
-        ]
-    }
+    "prefer-stable": true
 }
