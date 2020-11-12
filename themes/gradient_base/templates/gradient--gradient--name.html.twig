@@ -1,6 +1,6 @@
 {#
 /**
- * @file source.html.twig
+ * @file gradient.html.twig
  * Default theme implementation to present Source data.
  *
  * This template is used when viewing Source pages.
@@ -10,11 +10,11 @@
  * - content: A list of content items. Use 'content' to print all content, or
  * - attributes: HTML attributes for the container element.
  *
- * @see template_preprocess_source()
+ * @see template_preprocess_gradient()
  *
  * @ingroup themeable
  */
 #}
-{% if source %}
-<a href="{{source.url}}" title="{{source.name}}">{{source.name}}</a> <a href="{{source.feed}}" class="feed-local"></a>
+{% if gradient %}
+<a href="{{gradient.canonical}}" title="{{gradient.name}}">{{gradient.name}}</a> <a href="{{gradient.feed}}" class="feed-local"></a>
 {% endif %}

@@ -8,3 +8,20 @@ table{
 h2 .field--name-title{
     font-size: 1.3rem;
 }
+a.feed-source{
+    display:inline-block;
+    width:1rem;
+    height:1rem;
+    background-image:url('../images/feed-source.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a.feed-local{
+    display:inline-block;
+    width:1rem;
+    height:1rem;
+    background-image:url('../images/feed-local.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
