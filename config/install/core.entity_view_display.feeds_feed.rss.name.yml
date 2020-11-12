@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.feeds_feed.name
+    - feeds.feed_type.rss
+    - field.field.feeds_feed.rss.source_entity
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: feeds_feed.rss.name
+targetEntityType: feeds_feed
+bundle: rss
+mode: name
+content:
+  source:
+    label: inline
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  feed_items_entity_view_1: true
+  imported: true
+  next: true
+  search_api_excerpt: true
+  source_entity: true

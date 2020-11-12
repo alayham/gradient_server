@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - gradient
+id: gradient.name
+label: name
+targetEntityType: gradient
+cache: true

@@ -3,3 +3,7 @@ services:
     class: \Drupal\gradient_server\Commands\DemoData
     tags:
       - { name: drush.command }
+  gradient.homepage:
+    class: \Drupal\gradient_server\Commands\Home
+    tags:
+      - { name: drush.command }

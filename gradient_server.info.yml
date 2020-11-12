@@ -39,6 +39,7 @@ install:
   - file
   - views
   - views_ui
+  - layout_builder
 
   - admin_toolbar_links_access_filter
   - admin_toolbar_tools
