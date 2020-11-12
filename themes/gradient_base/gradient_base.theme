@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
 
 function gradient_base_preprocess_node(&$variables) {
   $node = $variables['node'];
@@ -19,6 +20,22 @@ function gradient_base_preprocess_node(&$variables) {
           $variables['source']['logo'] = $manager->getViewBuilder($source->getEntityTypeId())->view($source,'logo');
         }
       }
+    }
+  }
+}
+
+function gradient_base_preprocess_feeds_feed(&$variables) {
+  $feed = $variables['feed'];
+  if ($feed) {
+    $variables += [
+      'source_feed' => $feed->get('source')->value,
+      'local_feed' => $feed->toUrl()->toString() . '/feed',
+    ];
+    if ($source = $feed->get('source_entity')->entity) {
+      $variables['source_url'] = $source->get('url')->first()->getUrl()->toString();
+    }
+    else {
+      $variables['source_url'] = $feed->toUrl()->toString();
     }
   }
 }

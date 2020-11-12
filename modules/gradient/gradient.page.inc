@@ -23,6 +23,13 @@ function template_preprocess_gradient(array &$variables) {
   // Fetch Gradient Entity Object.
   $gradient = $variables['elements']['#gradient'];
 
+
+  $variables['gradient'] = [
+    'name' => $gradient->label(),
+    'canonical' => $gradient->toUrl()->toString(),
+    'feed' => $gradient->toUrl()->toString() . '/feed',
+  ];
+
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
