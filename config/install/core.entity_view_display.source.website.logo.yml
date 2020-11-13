@@ -6,10 +6,10 @@ dependencies:
     - field.field.source.website.categories
     - field.field.source.website.logo
     - field.field.source.website.url
+    - image.style.medium
     - source.source_type.website
   module:
     - image
-    - link
 id: source.website.logo
 targetEntityType: source
 bundle: website
@@ -21,7 +21,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: 'medium'
+      image_style: medium
       image_link: ''
     third_party_settings: {  }
   name:
@@ -37,5 +37,5 @@ hidden:
   langcode: true
   search_api_excerpt: true
   source_items_entity_view_1: true
-  user_id: true
   url: true
+  user_id: true

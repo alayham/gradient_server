@@ -8,6 +8,7 @@ dependencies:
     - image.style.thumbnail
     - source.source_type.website
   module:
+    - filefield_sources
     - image
     - link
 id: source.website.default
@@ -16,26 +17,37 @@ bundle: website
 mode: default
 content:
   categories:
-    type: entity_reference_autocomplete
-    weight: 2
+    type: options_buttons
+    weight: -8
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   logo:
     type: image_image
-    weight: 3
+    weight: -7
     region: content
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      filefield_sources:
+        filefield_sources:
+          sources:
+            upload: true
+            remote: true
+            clipboard: false
+            reference: false
+            attach: false
+          source_reference:
+            autocomplete: '0'
+            search_all_fields: '0'
+          source_attach:
+            path: file_attach
+            absolute: 0
+            attach_mode: move
   name:
     type: string_textfield
-    weight: 0
+    weight: -10
     region: content
     settings:
       size: 60
@@ -43,7 +55,7 @@ content:
     third_party_settings: {  }
   url:
     type: link_default
-    weight: 1
+    weight: -9
     region: content
     settings:
       placeholder_url: ''

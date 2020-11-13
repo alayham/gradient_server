@@ -187,7 +187,7 @@ display:
     display_options:
       display_extenders: {  }
       block_description: 'New gradients'
-      block_category: 'What''s new (Views)'
+      block_category: 'Gradient Server: What''s new'
     cache_metadata:
       max-age: -1
       contexts:

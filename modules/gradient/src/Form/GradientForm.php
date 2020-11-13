@@ -45,7 +45,7 @@ class GradientForm extends ContentEntityForm {
         '#weight' => 10,
       ];
     }
-
+    $form['status']['#group'] = 'footer';
     return $form;
   }
 

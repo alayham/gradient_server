@@ -21,7 +21,7 @@ class Home extends DrushCommands {
   public function create() {
     $section1 = new Section('layout_twocol_section', ['column_widths' => '75-25']);
     $section1->appendComponent(new SectionComponent(\Drupal::service('uuid')->generate(), 'first', [
-      'id' => 'views_block:new_items-block_1',
+      'id' => 'views_block:new_items-teasers',
       'label' => 'Test block title',
       'label_display' => 'hidden',
     ]));

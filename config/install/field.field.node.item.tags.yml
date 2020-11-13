@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.tags
     - node.type.item
     - taxonomy.vocabulary.tags
-id: node.article.tags
+id: node.item.tags
 field_name: tags
 entity_type: node
 bundle: item

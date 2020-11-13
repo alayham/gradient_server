@@ -194,7 +194,7 @@ display:
     display_options:
       display_extenders: {  }
       block_description: 'New sources'
-      block_category: 'What''s new (Views)'
+      block_category: 'Gradient Server: What''s new'
     cache_metadata:
       max-age: -1
       contexts:
