@@ -53,6 +53,7 @@ install:
   - search_api_solr
   - search_api_solr_admin
   - eva
+  - filefield_sources
 
   - source
   - gradient
