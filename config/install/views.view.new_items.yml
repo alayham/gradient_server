@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.teaser
     - field.storage.node.feed_entity
     - field.storage.node.link
   module:
@@ -508,7 +509,7 @@ display:
             feed_entity: feed_entity
           separator: ': '
           hide_empty: false
-      block_description: 'New content (link and feed)'
+      block_description: 'New content (table view)'
       block_category: 'Gradient Server: What''s new'
       pager:
         type: some
@@ -535,9 +536,23 @@ display:
       display_extenders: {  }
       allow:
         items_per_page: true
-      block_description: 'New items'
+      block_description: 'New content (teasers)'
       block_category: 'Gradient Server: What''s new'
       display_description: ''
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+      defaults:
+        style: false
+        row: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
     cache_metadata:
       max-age: -1
       contexts:
@@ -555,7 +570,7 @@ display:
     position: 3
     display_options:
       display_extenders: {  }
-      block_description: 'Title with times ago'
+      block_description: 'New content (list view)'
       block_category: 'Gradient Server: What''s new'
       fields:
         link:
@@ -823,12 +838,32 @@ display:
       defaults:
         fields: false
         pager: false
+        style: false
+        row: false
       pager:
         type: some
         options:
           items_per_page: 30
           offset: 0
       display_description: ''
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline:
+            created: created
+            title: title
+          separator: ': '
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
