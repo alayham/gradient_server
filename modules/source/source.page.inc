@@ -8,6 +8,9 @@
  */
 
 use Drupal\Core\Render\Element;
+use Drupal\feeds\Entity\FeedType;
+use Drupal\Core\Url;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
  * Prepares variables for Source templates.
@@ -33,8 +36,29 @@ function template_preprocess_source(array &$variables) {
     'name' => $source->label(),
     'canonical' => $source->toUrl()->toString(),
     'feed' => $source->toUrl()->toString() . '/feed',
+    'buttons' => [],
   ];
   if ($source->logo->entity) {
     $variables['source']['logo'] = $source->logo->entity->createFileUrl();
+  }  
+
+  if ($source->access('update')) {
+    $feed_types = \Drupal::service('source.connected_feed_types')->getConnectedFeedTypes();
+    foreach ($feed_types as $id => $label) {
+      if (\Drupal::entityTypeManager()->getAccessControlHandler('feeds_feed')->createAccess($id)) {
+        $variables['source']['buttons'][] = [
+          '#type' => 'link',
+          '#attributes' => [
+            'class' => ['btn', 'btn-primary'],
+          ],
+          '#title' => new TranslatableMarkup('Add a new @type', ['@type' => $label]),
+          '#url' => URL::fromRoute('source.add_feed', [
+            'feed_type' => $id,
+            'source' => $source->id(),
+          ]),
+        ];
+      }
+    }
   }
+
 }

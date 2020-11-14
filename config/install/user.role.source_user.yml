@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies: {  }
+id: source_user
+label: 'Source user'
+weight: -7
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'change own username'
+  - 'create item content'
+  - 'create rss feeds'
+  - 'create terms in tags'
+  - 'delete own item content'
+  - 'edit own item content'
+  - 'import rss feeds'
+  - 'revert item revisions'
+  - 'schedule_import rss feeds'
+  - 'unlock rss feeds'
+  - 'update rss feeds'
+  - 'use text format basic_html'
+  - 'use text format restricted_html'
+  - 'view item revisions'
+  - 'view rss feeds'
+  - 'website create entities'
+  - 'website delete own entities'
+  - 'website edit own entities'
+  - 'website view revisions'

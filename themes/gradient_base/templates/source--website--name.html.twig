@@ -16,5 +16,5 @@
  */
 #}
 {% if source %}
-<a href="{{source.url}}" title="{{source.name}}">{{source.name}}</a> <a href="{{source.feed}}" class="feed-local"></a>
+<a href="{{source.url}}" title="{{source.name}}">{{source.name}}</a> <a href="{{source.feed}}" class="feed-local"></a><a class="cached" href="{{source.canonical}}"></a>
 {% endif %}

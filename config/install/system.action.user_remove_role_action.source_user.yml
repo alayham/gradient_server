@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.source_user
+  module:
+    - user
+id: user_remove_role_action.source_user
+label: 'Remove the Source user role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: source_user

@@ -8,3 +8,6 @@ is_admin: false
 permissions:
   - 'access content'
   - 'access site-wide contact form'
+  - 'view published gradient entities'
+  - 'view published source entities'
+  - 'view rss feeds'

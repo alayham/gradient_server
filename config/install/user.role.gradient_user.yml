@@ -3,14 +3,22 @@ status: true
 dependencies: {  }
 id: gradient_user
 label: 'Gradient user'
-weight: -7
+weight: -8
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'change own username'
   - 'create gradient content'
   - 'delete own gradient content'
   - 'edit own gradient content'
+  - 'gradient create entities'
+  - 'gradient delete own entities'
+  - 'gradient delete revisions'
+  - 'gradient edit own entities'
   - 'revert gradient revisions'
+  - 'use text format basic_html'
+  - 'use text format restricted_html'
   - 'view gradient revisions'
   - 'view own unpublished content'
+  - 'view published gradient entities'
   - 'view the administration theme'

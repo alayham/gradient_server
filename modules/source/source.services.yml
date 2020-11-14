@@ -1,0 +1,6 @@
+services:
+  source.connected_feed_types:
+    class: 'Drupal\source\SourceConnectedFeedTypesService'
+    arguments:
+      - '@entity_type.bundle.info'
+      - '@entity_field.manager'

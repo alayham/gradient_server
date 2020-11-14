@@ -30,6 +30,7 @@ function gradient_base_preprocess_feeds_feed(&$variables) {
     $variables += [
       'source_feed' => $feed->get('source')->value,
       'local_feed' => $feed->toUrl()->toString() . '/feed',
+      'canonical' => $feed->toUrl()->toString(),
     ];
     if ($source = $feed->get('source_entity')->entity) {
       $variables['source_url'] = $source->get('url')->first()->getUrl()->toString();

@@ -1,0 +1,14 @@
+source.add_feed:
+  path: '/feed/add/{feed_type}/{source}'
+  defaults:
+    _controller: 'Drupal\source\Controller\AddFeed::bySource'
+    _title_callback: 'Drupal\source\Controller\AddFeed::bySourceTitle'
+  requirements:
+    _entity_create_access: 'feeds_feed:{feed_type}'
+    _entity_access: 'source.update'
+  options:
+    parameters:
+      feed_type:
+        type: entity:feeds_feed_type
+      source:
+        type: entity:source
