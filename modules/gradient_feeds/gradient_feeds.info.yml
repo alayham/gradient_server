@@ -1,7 +1,0 @@
-name: 'gradient_feeds'
-type: module
-description: 'Gradient server extensions to the feeds module'
-package: 'Gradient'
-core_version_requirement: ^9
-dependencies:
-  - feeds:feeds

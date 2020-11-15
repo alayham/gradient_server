@@ -1,0 +1,9 @@
+name: 'Gradient Server Core'
+type: module
+description: 'Core configuration of the Gradient server install profile'
+package: 'Gradient'
+core_version_requirement: ^9
+dependencies:
+  - feeds:feeds
+  - source
+  - gradient

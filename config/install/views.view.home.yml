@@ -8,7 +8,7 @@ dependencies:
     - node
     - user
 id: home
-label: Home
+label: Content
 module: views
 description: ''
 tag: ''
@@ -192,7 +192,7 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
-      title: News
+      title: Content
       header: {  }
       footer: {  }
       empty: {  }
@@ -215,10 +215,10 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: news
+      path: content
       menu:
         type: normal
-        title: News
+        title: Content
         description: ''
         expanded: true
         parent: ''

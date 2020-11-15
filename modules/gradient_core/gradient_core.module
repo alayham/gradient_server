@@ -1,0 +1,75 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+function gradient_core_form_node_landing_page_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['make_home'] = [
+    '#type' => 'checkbox',
+    '#title' => 'Make this a new home page',
+    '#description' => 'When selected, this page will become the site\'s new home page',
+    '#default_value' => fALSE,
+    '#group' => 'footer',
+    '#weight' => 2,
+    '#states' => [
+      'invisible' => ['input[name="status[value]"' => ['checked' => FALSE]],
+      'visible' => ['input[name="status[value]"' => ['checked' => TRUE]],
+    ]
+  ];
+  $form['actions']['submit']['#submit'][] = 'gradient_core_make_home_handler';
+}
+function gradient_core_form_node_landing_page_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $uri = $form_state->getFormObject()->getEntity()->toUrl()->toString();
+  $home = \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->get('page.front');
+  if ($uri === $home) {
+    $form['actions']['is_home'] = [
+      '#type' => 'markup',
+      '#markup' => '<p><strong>Be careful, you are editing the home page of your site.</strong></p>',
+      '#group' => 'footer',
+      '#weight' => -2,
+    ];
+  } else {
+    gradient_core_form_node_landing_page_form_alter($form, $form_state, $form_id);
+  }
+}
+
+function gradient_core_make_home_handler(&$form, FormStateInterface $form_state) {
+  if ($form_state->getValue('status') && $form_state->getValue('make_home')) {
+    $uri = $form_state->getFormObject()->getEntity()->toUrl()->toString();
+    \Drupal::configFactory()
+      ->getEditable('system.site')
+      ->set('page.front', $uri)
+      ->save();
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function gradient_core_theme_suggestions_feeds_feed(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#feeds_feed'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'feeds_feed__' . $sanitized_view_mode;
+  $suggestions[] = 'feeds_feed__' . $entity->bundle();
+  $suggestions[] = 'feeds_feed__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'feeds_feed__' . $entity->id();
+  $suggestions[] = 'feeds_feed__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function gradient_core_theme_suggestions_taxonomy_term(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#taxonomy_term'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'taxonomy_term__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'taxonomy_term__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
