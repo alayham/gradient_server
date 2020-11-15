@@ -1,20 +1,5 @@
-{#
-/**
- * @file source.html.twig
- * Default theme implementation to present Source data.
- *
- * This template is used when viewing Source pages.
- *
- *
- * Available variables:
- * - content: A list of content items. Use 'content' to print all content, or
- * - attributes: HTML attributes for the container element.
- *
- * @see template_preprocess_source()
- *
- * @ingroup themeable
- */
-#}
 {% if source %}
-<a href="{{source.url}}" title="{{source.name}}">{{source.name}}</a> <a href="{{source.feed}}" class="feed-local"></a><a class="cached" href="{{source.canonical}}"></a>
+<a title="Visit the homepage of this content source" href="{{source.url}}">{{source.name}}</a>
+<a title="Download the feed of this content source from this Gradient server" href="{{source.feed}}" class="feed-local"></a>
+<a title="Visit the content source page on this gradient server" class="cached" href="{{source.canonical}}"></a>
 {% endif %}

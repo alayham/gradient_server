@@ -1,1 +1,6 @@
-<a href="{{source_url}}">{{feed.label()}}</a> <a class="feed-source" href="{{source_feed}}"></a><a class="feed-local" href="{{local_feed}}"></a><a class="cached" href="{{canonical}}"></a>
+{% if feed %}
+<a title="Visit the website that publishes this feed" href="{{source_url}}">{{feed.label()}}</a>
+<a title="Download the original feed from the publishing site" class="feed-source" href="{{source_feed}}"></a>
+<a title="Download the feed from this gradient server" class="feed-local" href="{{local_feed}}"></a>
+<a title="Visit the cached page of this feed on this Gradient server" class="cached" href="{{canonical}}"></a>
+{% endif %}
