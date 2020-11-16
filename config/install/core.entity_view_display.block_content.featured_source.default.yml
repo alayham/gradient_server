@@ -8,8 +8,6 @@ dependencies:
     - field.field.block_content.featured_source.source_entity
   module:
     - text
-_core:
-  default_config_hash: ZdDAH45uF1vYLx7MzuuKtk1OZ9aUvoo2sb2SsUG9S00
 id: block_content.featured_source.default
 targetEntityType: block_content
 bundle: featured_source
