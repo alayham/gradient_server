@@ -38,12 +38,14 @@
     <h2{{ title_attributes.addClass(['bg-secondary', 'text-light']) }}>{{ label }}</h2>
   {% endif %}
   {{ title_suffix }}
-  {% if source and source.logo %}
-  <div class="align-left"><img src="{{source.logo}}"/></div>
-  {% endif %}
-  <div class="align-left">
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+  <div class="row">
+    {% if source and source.logo %}
+    <div class="col-4"><img src="{{source.logo}}"class="w-100"/></div>
+    {% endif %}
+    <div class="col">
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+    </div>
   </div>
 </div>
