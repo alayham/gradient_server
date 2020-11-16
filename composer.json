@@ -31,7 +31,7 @@
     "prefer-stable": true,
     "extra": {
         "patches": {
-            "drupal/core": {
+            "drupal/contact_storage": {
               "fix contact storage installation": "https://www.drupal.org/files/issues/2020-09-28/3053497-8.patch"
             }
         }
