@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.featured_source
+    - field.field.block_content.featured_source.body
+    - field.field.block_content.featured_source.image_style
+    - field.field.block_content.featured_source.source_entity
+  module:
+    - text
+_core:
+  default_config_hash: Zq51qcQbzyTSma8K1h0oRyHkzInxQznr0FpV5aorhBY
+id: block_content.featured_source.default
+targetEntityType: block_content
+bundle: featured_source
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  image_style:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  source_entity:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  langcode: true

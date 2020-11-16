@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.featured_source
+    - field.storage.block_content.image_style
+id: block_content.featured_source.image_style
+field_name: image_style
+entity_type: block_content
+bundle: featured_source
+label: 'Image style for the logo'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:image_style'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

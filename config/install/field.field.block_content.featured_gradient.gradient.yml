@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.featured_gradient
+    - field.storage.block_content.gradient
+    - gradient.gradient_type.gradient
+id: block_content.featured_gradient.gradient
+field_name: gradient
+entity_type: block_content
+bundle: featured_gradient
+label: Gradient
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:gradient'
+  handler_settings:
+    target_bundles:
+      gradient: gradient
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

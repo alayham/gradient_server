@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.featured_gradient
+    - field.field.block_content.featured_gradient.body
+    - field.field.block_content.featured_gradient.gradient
+  module:
+    - text
+id: block_content.featured_gradient.default
+targetEntityType: block_content
+bundle: featured_gradient
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  gradient:
+    weight: 1
+    label: visually_hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

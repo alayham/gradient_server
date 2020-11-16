@@ -87,3 +87,20 @@ function gradient_core_form_contact_message_apply_for_role_form_alter(&$form, Fo
   unset ($form['field_which_role']['widget']['#options']['anonymous']);
   unset ($form['field_which_role']['widget']['#options']['authenticated']);
 }
+
+function gradient_core_preprocess_block(array &$variables) {
+  $block = $variables['elements']['content']['#block_content'];
+  if ($block && $block->hasField('source_entity')) {
+    $source = $block->get('source_entity')->entity;
+    if ($source) {
+      $variables['source'] = [
+        'url' => $source->url->first()->getUrl()->toString(),
+        'name' => $source->label(),
+        'canonical' => $source->toUrl()->toString(),
+      ];
+      if (($logo = $source->logo->entity) && ($style = $block->get('image_style')->entity)) {
+        $variables['source']['logo'] = $style->buildUrl($logo->getFileUri());
+      }  
+    }
+  }
+}
