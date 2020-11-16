@@ -17,11 +17,11 @@ class DemoData extends DrushCommands {
   /**
    * Create some demo content.
    *
-   * @command gradient:demo_data:create
-   * @aliases gdc
-   * @usage gradient:demo_data:create
+   * @command gradient:demo_data:create:test
+   * @aliases gdct
+   * @usage gradient:demo_data:create:test
    */
-  public function createDemoData() {
+  public function createTestData() {
     $term1 = Term::create([
       'name' => 'Alternative Media',
       'vid' => 'categories',
@@ -98,7 +98,6 @@ class DemoData extends DrushCommands {
     $feed1 = Feed::create([
       'type' => 'rss',
       'title' => '21st Century Wire',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'http://21stcenturywire.com/feed',
       'source_entity' => [$source1],
@@ -122,7 +121,6 @@ class DemoData extends DrushCommands {
     $feed2 = Feed::create([
       'type' => 'rss',
       'title' => 'Dissident Voice',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'http://dissidentvoice.org/feed/',
       'source_entity' => [$source2],
@@ -146,7 +144,6 @@ class DemoData extends DrushCommands {
     $feed3 = Feed::create([
       'type' => 'rss',
       'title' => 'Free Man Beyond the Wall',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'https://liviucerchez.com/castpod/feed/podcast',
       'source_entity' => [$source3],
@@ -156,7 +153,6 @@ class DemoData extends DrushCommands {
     $feed4 = Feed::create([
       'type' => 'rss',
       'title' => 'Peter R. Quinones website feed',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'https://freemanbeyondthewall.com/feed',
       'source_entity' => [$source3],
@@ -180,7 +176,6 @@ class DemoData extends DrushCommands {
     $feed5 = Feed::create([
       'type' => 'rss',
       'title' => 'The corbett report website feed',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'https://corbettreport.com/feed',
       'source_entity' => [$source4],
@@ -205,7 +200,6 @@ class DemoData extends DrushCommands {
     $feed6 = Feed::create([
       'type' => 'rss',
       'title' => 'Freedom\'s Phoenix Feature Articles',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'https://www.freedomsphoenix.com/RSS/RSS-Feed.xml?EdNo=001&Page=Art',
       'source_entity' => [$source5],
@@ -225,7 +219,6 @@ class DemoData extends DrushCommands {
     $feed8 = Feed::create([
       'type' => 'rss',
       'title' => 'Freedom\'s Phoenix Newsletter Headlines',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'https://www.freedomsphoenix.com/RSS/Top-News-Feed.xml',
       'source_entity' => [$source5],
@@ -235,7 +228,6 @@ class DemoData extends DrushCommands {
     $feed9 = Feed::create([
       'type' => 'rss',
       'title' => 'Freedom\'s Phoenix Radio/TV Show Archives',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'https://www.freedomsphoenix.com/RSS/RSS-Feed.xml?EdNo=001&Page=Med',
       'source_entity' => [$source5],
@@ -259,7 +251,6 @@ class DemoData extends DrushCommands {
     $feed10 = Feed::create([
       'type' => 'rss',
       'title' => 'Media Monarchy feed',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'https://mediamonarchy.com/feed/',
       'source_entity' => [$source6],
@@ -283,7 +274,6 @@ class DemoData extends DrushCommands {
     $feed11 = Feed::create([
       'type' => 'rss',
       'title' => 'RPI Peace and Prosperity',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'http://www.ronpaulinstitute.org/archives/peace-and-prosperity/rss.aspx?blogid=1',
       'source_entity' => [$source7],
@@ -293,7 +283,6 @@ class DemoData extends DrushCommands {
     $feed12 = Feed::create([
       'type' => 'rss',
       'title' => 'RPI Congress Alert',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'http://www.ronpaulinstitute.org/archives/congress-alert/rss.aspx?blogid=2',
       'source_entity' => [$source7],
@@ -313,7 +302,6 @@ class DemoData extends DrushCommands {
     $feed14 = Feed::create([
       'type' => 'rss',
       'title' => 'RPI NeoCon Watch',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'http://www.ronpaulinstitute.org/archives/neocon-watch/rss.aspx?blogid=4',
       'source_entity' => [$source7],
@@ -337,7 +325,6 @@ class DemoData extends DrushCommands {
     $feed15 = Feed::create([
       'type' => 'rss',
       'title' => 'Off Guardian Feed',
-      'uid' => $user2,
       'status' => 1,
       'source' => 'https://off-guardian.org/feed',
       'source_entity' => [$source8],
@@ -385,6 +372,7 @@ class DemoData extends DrushCommands {
   public function removeAllContent() {
     $tables = [
       'taxonomy_index', 'Taxonomy_term_data', 'taxonomy_term_field_data', 'taxonomy_term_field_revision', 'taxonomy_term_revision', 'taxonomy_term_revision__parent', 'taxonomy_term__parent',
+      'feeds_feed', 'feeds_feed__source_entity', 'feeds_subscription',
       'source', 'source_field_data', 'source_revision', 'source_field_revision', 'source_revision__categories', 'source_revision__logo', 'source_revision__url', 'source__categories', 'source__logo', 'source__url',
       'node', 'node_field_data', 'node_field_revision', 'node_revision', 'node_revision__body', 'node_revision__feeds_item', 'node_revision__feed_entity', 'node_revision__layout_builder__layout', 'node_revision__link', 'node_revision__tags',
       'node__body', 'node__feeds_item', 'node__feed_entity', 'node__layout_builder__layout', 'node__link', 'node__tags',
@@ -399,4 +387,50 @@ class DemoData extends DrushCommands {
     \Drupal::database()->query('DELETE FROM users WHERE uid > 1');
   }
   
+  /**
+   * Import json demo data.
+   *
+   * @command gradient:demo_data:create:demo
+   * 
+   * @param $file The data file to import.
+   * @aliases gdcd
+   * @usage gradient:demo_data:create:demo file
+   */
+  public function createDemoData($file) {
+    if (!file_exists($file)) {
+      return;
+    }
+    $data = json_decode(file_get_contents($file));
+    if (!$data) {
+      return;
+    }
+    foreach ($data as $item) {
+
+      $source = Source::create([
+        'type' => 'website',
+        'name' => $item->name,
+        'url' => $item->url,
+        'user_id' => 1,
+        'status' => 1,
+      ]);
+      $source->save();
+      $ext = pathinfo($item->logo, PATHINFO_EXTENSION);
+      $uri = 'public://logo/' . $source->id() . '.' . $ext;
+      file_put_contents($uri, file_get_contents($item->logo));
+      $logo = File::create(['uri' => $uri]);
+      $source->set('logo', $logo);
+      $source->save();
+      foreach ($item->feeds as $feed) {
+        Feed::create([
+          'type' => 'rss',
+          'title' => $feed->name,
+          'source' => $feed->source,
+          'uid' => 1,
+          'status' => 1,
+          'source_entity' => [$source],
+          'next' => time() + rand (60, 60 * 60 * 6),
+        ])->save();
+      } 
+    }
+  }
 }

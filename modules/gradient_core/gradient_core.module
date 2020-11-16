@@ -80,3 +80,10 @@ function gradient_core_theme_suggestions_taxonomy_term(array $variables) {
 function gradient_core_preprocess_taxonomy_term (array &$variables) {
   $variables['canonical'] = $variables['term']->toUrl('canonical')->toString();
 }
+
+function gradient_core_form_contact_message_apply_for_role_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  unset ($form['field_which_role']['widget']['#options']['_none']);
+  unset ($form['field_which_role']['widget']['#options']['administrator']);
+  unset ($form['field_which_role']['widget']['#options']['anonymous']);
+  unset ($form['field_which_role']['widget']['#options']['authenticated']);
+}

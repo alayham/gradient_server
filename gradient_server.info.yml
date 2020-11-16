@@ -54,6 +54,8 @@ install:
   - search_api_solr_admin
   - eva
   - filefield_sources
+  - token
+  - contact_storage
 
   - source
   - gradient

@@ -1,5 +1,5 @@
-default_form: feedback
+default_form: apply_for_role
 flood:
-  limit: 5
+  limit: 2
   interval: 3600
 user_default_enabled: false

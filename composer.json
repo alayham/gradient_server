@@ -8,6 +8,7 @@
         "drupal/admin_toolbar": "2.4",
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/config_update": "^1.7",
+        "drupal/contact_storage": "^1.1",
         "drupal/eva": "^2.1",
         "drupal/facets": "^1.5",
         "drupal/feeds": "^3.0",
@@ -27,5 +28,12 @@
     ],
     "homepage": "http://www.alayham.com",
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "extra": {
+        "patches": {
+            "drupal/core": {
+              "fix contact storage installation": "https://www.drupal.org/files/issues/2020-09-28/3053497-8.patch"
+            }
+        }
+    }
 }
