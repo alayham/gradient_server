@@ -15,6 +15,7 @@ dependencies:
   - core:node
   - core:taxonomy
   - eva:eva
+  - config_update:config_update_ui
 install:
   - node
   - block
@@ -54,6 +55,7 @@ install:
   - filefield_sources
   - token
   - contact_storage
+  - config_update_ui
 
   - source
   - gradient
