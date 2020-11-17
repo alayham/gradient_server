@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    submit_text: Apply
+    show_preview: false
+    disabled_form_message: 'This application form has been disabled.'
+    maximum_submissions_user: 5
+    page_autoreply_format: plain_text
+id: apply_for_role
+label: 'Apply for role'
+recipients: {}
+reply: 'Thank you for your role application. We will get back to you shortly.'
+weight: 0
+message: 'Thank you for your role application. We will get back to you shortly..'
+redirect: ''

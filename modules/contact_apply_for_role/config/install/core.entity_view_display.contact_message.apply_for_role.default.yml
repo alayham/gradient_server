@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.apply_for_role
+    - field.field.contact_message.apply_for_role.role
+id: contact_message.apply_for_role.default
+targetEntityType: contact_message
+bundle: apply_for_role
+mode: default
+content:
+  mail:
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  message:
+    type: basic_string
+    weight: 4
+    label: above
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  role:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  subject:
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  langcode: true
+  search_api_excerpt: true

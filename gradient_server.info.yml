@@ -5,7 +5,6 @@ core_version_requirement: ^9
 version: VERSION
 dependencies:
   - admin_toolbar:admin_toolbar_tools
-  - admin_toolbar:admin_toolbar_links_access_filter
   - feeds:feeds
   - views_rss:views_rss
   - views_rss:views_rss_core
@@ -41,7 +40,6 @@ install:
   - views_ui
   - layout_builder
 
-  - admin_toolbar_links_access_filter
   - admin_toolbar_tools
   - antibot
   - facets
@@ -60,6 +58,7 @@ install:
   - source
   - gradient
   - gradient_core
+  - contact_apply_for_role
 themes:
   - seven
   - gradient_base

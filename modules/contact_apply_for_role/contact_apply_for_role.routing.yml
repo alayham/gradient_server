@@ -1,0 +1,16 @@
+contact_apply_for_role.approve_role_application:
+  path: /admin/structure/contact/messages/{contact_message}/approve
+  defaults:
+    _controller: 'Drupal\contact_apply_for_role\Controller\ContactController::approveRole'
+    _title: 'Approve'
+  requirements:
+    _entity_bundles: 'contact_message:apply_for_role'
+    _entity_access: 'contact_message.view'
+    _permission: 'administer users'
+    _custom_access: 'Drupal\contact_apply_for_role\Controller\ContactController::approveRoleAccess'
+  options:
+    _admin_route: true
+    parameters:
+      contact_message:
+        type: entity:contact_message
+    no_cache: true

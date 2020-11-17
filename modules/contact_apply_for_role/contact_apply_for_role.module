@@ -1,0 +1,10 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+function contact_apply_for_role_form_contact_message_apply_for_role_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  unset ($form['role']['widget']['#options']['_none']);
+  unset ($form['role']['widget']['#options']['administrator']);
+  unset ($form['role']['widget']['#options']['anonymous']);
+  unset ($form['role']['widget']['#options']['authenticated']);
+}

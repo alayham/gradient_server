@@ -1,0 +1,5 @@
+contact_apply_for_role.approve_role_application:
+  route_name: contact_apply_for_role.approve_role_application
+  title: 'Approve'
+  appears_on:
+    - entity.contact_message.canonical

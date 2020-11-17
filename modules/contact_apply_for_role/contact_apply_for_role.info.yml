@@ -1,0 +1,8 @@
+name: 'Contact Apply for role'
+type: module
+description: 'A custom contact message that can be used by users to apply for a certain roles.'
+package: 'Gradient'
+core_version_requirement: ^9
+dependencies:
+  - contact_storage
+  - user
