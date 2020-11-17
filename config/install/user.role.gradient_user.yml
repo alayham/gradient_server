@@ -7,7 +7,6 @@ weight: -8
 is_admin: null
 permissions:
   - 'access toolbar'
-  - 'change own username'
   - 'create gradient content'
   - 'delete own gradient content'
   - 'edit own gradient content'
@@ -19,6 +18,4 @@ permissions:
   - 'use text format basic_html'
   - 'use text format restricted_html'
   - 'view gradient revisions'
-  - 'view own unpublished content'
   - 'view published gradient entities'
-  - 'view the administration theme'
