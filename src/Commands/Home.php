@@ -8,7 +8,7 @@ use Drupal\node\Entity\NodeType;
 use Drupal\node\Entity\Node;
 use Drupal\layout_builder\Section;
 use Drupal\layout_builder\SectionComponent;
-
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 class Home extends DrushCommands {
 
   /**
@@ -44,9 +44,18 @@ class Home extends DrushCommands {
       'type' => 'landing_page',
       'title' => 'Welcome to Gradient Server',
       'status' => 1,
+      'uid' => 1,
+      'path' => '/home',
       OverridesSectionStorage::FIELD_NAME => [$section1],
     ]);
     $page->save();
+    MenuLinkContent::create([
+      'title' => 'Home',
+      'menu_name' => 'main',
+      'bundle' => 'menu_link_content',
+      'weight' => -50,
+      'link' => [['uri' => 'entity:node/' . $page->id()]],
+    ])->save();
     \Drupal::configFactory()
       ->getEditable('system.site')
       ->set('page.front', $page->toUrl()->toString())
