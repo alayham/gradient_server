@@ -1,0 +1,10 @@
+name: 'Gradient Server search'
+type: module
+description: 'Search configuration of the Gradient server install profile'
+package: 'Gradient'
+core_version_requirement: ^9
+dependencies:
+  - feeds:feeds
+  - source
+  - gradient
+  - gradient_core

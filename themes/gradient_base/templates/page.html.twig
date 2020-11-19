@@ -47,9 +47,10 @@
   <header role="banner">
     {{ page.header }}
   </header>
+  <div class="clearfix">
   {{ page.primary_menu }}
   {{ page.secondary_menu }}
-
+  </div>
   {{ page.page_top }}
 
   {{ page.breadcrumb }}
@@ -59,20 +60,28 @@
   {{ page.help }}
 
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-  <main role="main">
-
-    <div class="layout-content">
+  <main class="row clearfix" role="main">
+    {% if page.sidebar_first and page.sidebar_second %}
+    {%   set content_class = 'col-12 col-lg-6' %}
+    {%   set sidebar_class = 'col-12 col-sm-6 col-lg-3' %}
+    {% elseif page.sidebar_first or page.sidebar_second %} 
+    {%   set content_class = 'col-12 col-md-9' %}
+    {%   set sidebar_class = 'col-12 col-md-3' %}
+    {% else %}
+    {%   set content_class = 'col-12' %}
+    {% endif %}
+    <div class="{{content_class}}">
       {{ page.content }}
     </div>{# /.layout-content #}
 
     {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
+      <aside class="{{sidebar_class}}" role="complementary">
         {{ page.sidebar_first }}
       </aside>
     {% endif %}
 
     {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
+      <aside class="{{sidebar_class}}" role="complementary">
         {{ page.sidebar_second }}
       </aside>
     {% endif %}

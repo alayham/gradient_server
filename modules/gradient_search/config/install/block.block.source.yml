@@ -1,0 +1,28 @@
+uuid: f23d72fb-f3e0-4a5f-ba74-0a18d2bcdcb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.source
+  module:
+    - facets
+    - system
+  theme:
+    - gradient_base
+id: source
+theme: gradient_base
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:source'
+settings:
+  id: 'facet_block:source'
+  label: Source
+  provider: facets
+  label_display: visible
+  block_id: source
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false

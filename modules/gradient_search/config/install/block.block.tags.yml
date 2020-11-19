@@ -1,0 +1,28 @@
+uuid: 3e879fcf-3a82-49d5-931e-c943e89ae869
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.tags
+  module:
+    - facets
+    - system
+  theme:
+    - gradient_base
+id: tags
+theme: gradient_base
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:tags'
+settings:
+  id: 'facet_block:tags'
+  label: Tags
+  provider: facets
+  label_display: visible
+  block_id: tags
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false

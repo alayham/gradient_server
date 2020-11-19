@@ -1,0 +1,28 @@
+uuid: a2f0abc7-2564-4553-8cf0-de1c45c3cd33
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.post_date
+  module:
+    - facets
+    - system
+  theme:
+    - gradient_base
+id: postdate
+theme: gradient_base
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:post_date'
+settings:
+  id: 'facet_block:post_date'
+  label: 'Post date'
+  provider: facets
+  label_display: visible
+  block_id: postdate
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false
