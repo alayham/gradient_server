@@ -9,8 +9,8 @@ dependencies:
     - gradient_base
 id: useraccountmenu
 theme: gradient_base
-region: top_header
-weight: -3
+region: primary_menu
+weight: -2
 provider: null
 plugin: 'system_menu_block:account'
 settings:

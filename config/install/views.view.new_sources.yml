@@ -189,12 +189,48 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: Block
+    display_title: 'New sources'
     position: 1
     display_options:
       display_extenders: {  }
       block_description: 'New sources'
       block_category: 'Gradient Server: What''s new'
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user.permissions
+      tags: {  }
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: 'updated sources'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      sorts:
+        changed:
+          id: changed
+          table: source_field_data
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: source
+          entity_field: changed
+          plugin_id: date
+      defaults:
+        sorts: false
+      display_description: ''
+      block_description: 'Updated sources'
+      block_category: 'Gradient Server: What''s updated'
     cache_metadata:
       max-age: -1
       contexts:

@@ -406,12 +406,48 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: Block
+    display_title: 'new feeds'
     position: 1
     display_options:
       display_extenders: {  }
       block_description: 'New feeds'
       block_category: 'Gradient Server: What''s new'
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user.permissions
+      tags: {  }
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: 'Updated feeds'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      sorts:
+        changed:
+          id: changed
+          table: feeds_feed
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: feeds_feed
+          entity_field: changed
+          plugin_id: date
+      defaults:
+        sorts: false
+      block_category: 'Gradient Server: What''s updated'
+      block_description: 'Updated Feeds'
     cache_metadata:
       max-age: -1
       contexts:
