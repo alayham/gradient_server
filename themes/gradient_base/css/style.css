@@ -33,3 +33,8 @@ a.cached {
   background-repeat: no-repeat;
   background-size: cover;
 }
+#drupal-off-canvas .ui-autocomplete,
+#drupal-off-canvas .ui-autocomplete li,
+#drupal-off-canvas .ui-autocomplete a {
+  background-color: #fff;
+}
