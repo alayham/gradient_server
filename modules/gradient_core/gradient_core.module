@@ -2,6 +2,9 @@
 
 use Drupal\Core\Form\FormStateInterface;
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function gradient_core_form_node_landing_page_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['make_home'] = [
     '#type' => 'checkbox',
@@ -17,6 +20,10 @@ function gradient_core_form_node_landing_page_form_alter(&$form, FormStateInterf
   ];
   $form['actions']['submit']['#submit'][] = 'gradient_core_make_home_handler';
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function gradient_core_form_node_landing_page_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $uri = $form_state->getFormObject()->getEntity()->toUrl()->toString();
   $home = \Drupal::configFactory()
@@ -33,7 +40,9 @@ function gradient_core_form_node_landing_page_edit_form_alter(&$form, FormStateI
     gradient_core_form_node_landing_page_form_alter($form, $form_state, $form_id);
   }
 }
-
+/**
+ * A form submit handler to make a landing page a new home page.
+ */
 function gradient_core_make_home_handler(&$form, FormStateInterface $form_state) {
   if ($form_state->getValue('status') && $form_state->getValue('make_home')) {
     $uri = $form_state->getFormObject()->getEntity()->toUrl()->toString();
@@ -81,6 +90,9 @@ function gradient_core_preprocess_taxonomy_term (array &$variables) {
   $variables['canonical'] = $variables['term']->toUrl('canonical')->toString();
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function gradient_core_preprocess_block(array &$variables) {
   if (!empty($variables['elements']['content']['#block_content'])) {
     $block = $variables['elements']['content']['#block_content'];
