@@ -4,7 +4,6 @@ namespace Drupal\gradient_server\Commands;
 
 use Drush\Commands\DrushCommands;
 use Drupal\feeds\Entity\Feed;
-use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\source\Entity\Source;
 use Drupal\file\Entity\File;
@@ -12,6 +11,9 @@ use Drupal\gradient\Entity\Gradient;
 use Drupal\user\Entity\User;
 use Drupal\user\Entity\Role;
 
+/**
+ * A drush command class.
+ */
 class DemoData extends DrushCommands {
 
   /**
@@ -85,7 +87,7 @@ class DemoData extends DrushCommands {
     file_put_contents('public://logo1.jpg', file_get_contents('https://news.alayham.com/sites/default/files/logo/1538728_751733994851906_2075983683_n.png'));
     $logo1 = File::create(['uri' => 'public://logo1.jpg']);
     $logo1->save();
-    $source1=Source::create([
+    $source1 = Source::create([
       'type' => 'website',
       'name' => '21 Century Wire',
       'logo' => $logo1,
@@ -149,7 +151,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source3],
       'uid' => $user1,
     ]);
-    $feed3->save();  
+    $feed3->save();
     $feed4 = Feed::create([
       'type' => 'rss',
       'title' => 'Peter R. Quinones website feed',
@@ -158,7 +160,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source3],
       'uid' => $user1,
     ]);
-    $feed4->save();  
+    $feed4->save();
 
     file_put_contents('public://logo4.jpg', file_get_contents('https://eliasalias.com/wp-content/uploads/2015/06/James_Corbett.jpg'));
     $logo4 = File::create(['uri' => 'public://logo4.jpg']);
@@ -181,7 +183,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source4],
       'uid' => $user2,
     ]);
-    $feed5->save();  
+    $feed5->save();
 
     file_put_contents('public://logo5.jpg', file_get_contents('https://www.freedomsphoenix.com/Uploads/Graphics/001-0602071125-2009-22-x-29-Banner-copy.jpg'));
     $logo5 = File::create(['uri' => 'public://logo5.jpg']);
@@ -205,7 +207,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source5],
       'uid' => $user2,
     ]);
-    $feed6->save();  
+    $feed6->save();
     $feed7 = Feed::create([
       'type' => 'rss',
       'title' => 'Freedom\'s Phoenix Editorials',
@@ -215,7 +217,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source5],
       'uid' => $user2,
     ]);
-    $feed7->save();  
+    $feed7->save();
     $feed8 = Feed::create([
       'type' => 'rss',
       'title' => 'Freedom\'s Phoenix Newsletter Headlines',
@@ -224,7 +226,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source5],
       'uid' => $user2,
     ]);
-    $feed8->save();  
+    $feed8->save();
     $feed9 = Feed::create([
       'type' => 'rss',
       'title' => 'Freedom\'s Phoenix Radio/TV Show Archives',
@@ -233,7 +235,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source5],
       'uid' => $user2,
     ]);
-    $feed9->save();  
+    $feed9->save();
 
     file_put_contents('public://logo6.jpg', file_get_contents('https://pbs.twimg.com/profile_images/1226913212/mm_star_logo_400x400.jpg'));
     $logo6 = File::create(['uri' => 'public://logo6.jpg']);
@@ -256,7 +258,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source6],
       'uid' => $user2,
     ]);
-    $feed10->save();  
+    $feed10->save();
 
     file_put_contents('public://logo7.jpg', file_get_contents('https://pbs.twimg.com/profile_images/3539908374/6f1209cbd6791a478e65d8d03e32be8d_400x400.jpeg'));
     $logo7 = File::create(['uri' => 'public://logo7.jpg']);
@@ -279,7 +281,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source7],
       'uid' => $user2,
     ]);
-    $feed11->save();  
+    $feed11->save();
     $feed12 = Feed::create([
       'type' => 'rss',
       'title' => 'RPI Congress Alert',
@@ -288,7 +290,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source7],
       'uid' => $user2,
     ]);
-    $feed12->save();  
+    $feed12->save();
     $feed13 = Feed::create([
       'type' => 'rss',
       'title' => 'RPI Features Articles',
@@ -298,7 +300,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source7],
       'uid' => $user2,
     ]);
-    $feed13->save();  
+    $feed13->save();
     $feed14 = Feed::create([
       'type' => 'rss',
       'title' => 'RPI NeoCon Watch',
@@ -307,7 +309,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source7],
       'uid' => $user2,
     ]);
-    $feed14->save();  
+    $feed14->save();
 
     file_put_contents('public://logo8.jpg', file_get_contents('https://pbs.twimg.com/profile_images/952953971131469827/y-S5os89_400x400.jpg'));
     $logo8 = File::create(['uri' => 'public://logo8.jpg']);
@@ -330,7 +332,7 @@ class DemoData extends DrushCommands {
       'source_entity' => [$source8],
       'uid' => $user2,
     ]);
-    $feed15->save();  
+    $feed15->save();
 
     Gradient::create([
       'type' => 'gradient',
@@ -377,7 +379,7 @@ class DemoData extends DrushCommands {
       'node', 'node_field_data', 'node_field_revision', 'node_revision', 'node_revision__body', 'node_revision__feeds_item', 'node_revision__feed_entity', 'node_revision__layout_builder__layout', 'node_revision__link', 'node_revision__tags',
       'node__body', 'node__feeds_item', 'node__feed_entity', 'node__layout_builder__layout', 'node__link', 'node__tags',
       'gradient', 'gradient_revision', 'gradient_revision__sources', 'gradient__sources',
-      'user__roles'
+      'user__roles',
     ];
 
     foreach ($tables as $table) {
@@ -386,13 +388,14 @@ class DemoData extends DrushCommands {
     \Drupal::database()->query('DELETE FROM users_field_data WHERE uid > 1');
     \Drupal::database()->query('DELETE FROM users WHERE uid > 1');
   }
-  
+
   /**
    * Import json demo data.
    *
    * @command gradient:demo_data:create:demo
-   * 
-   * @param $file The data file to import.
+   *
+   * @param $file
+   *   The data file to import.
    * @aliases gdcd
    * @usage gradient:demo_data:create:demo file
    */
@@ -428,9 +431,10 @@ class DemoData extends DrushCommands {
           'uid' => 1,
           'status' => 1,
           'source_entity' => [$source],
-          'next' => time() + rand (60, 60 * 60 * 6),
+          'next' => time() + rand(60, 60 * 60 * 6),
         ])->save();
-      } 
+      }
     }
   }
+
 }

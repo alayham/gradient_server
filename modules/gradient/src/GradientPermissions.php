@@ -5,14 +5,12 @@ namespace Drupal\gradient;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\gradient\Entity\GradientType;
 
-
 /**
  * Provides dynamic permissions for Gradient of different types.
  *
  * @ingroup gradient
- *
  */
-class GradientPermissions{
+class GradientPermissions {
 
   use StringTranslationTrait;
 

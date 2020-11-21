@@ -24,7 +24,7 @@ class GradientBulkForm extends BulkForm {
   protected function getBulkOptions($filtered = TRUE) {
     $options = parent::getBulkOptions($filtered);
 
-    return array_reverse($options, true);
+    return array_reverse($options, TRUE);
   }
 
 }

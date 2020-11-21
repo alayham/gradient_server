@@ -34,7 +34,7 @@ class GradientForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    /* @var \Drupal\gradient\Entity\Gradient $entity */
+    /** @var \Drupal\gradient\Entity\Gradient $entity */
     $form = parent::buildForm($form, $form_state);
 
     if (!$this->entity->isNew()) {

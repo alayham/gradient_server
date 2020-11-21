@@ -5,14 +5,12 @@ namespace Drupal\source;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\source\Entity\SourceType;
 
-
 /**
  * Provides dynamic permissions for Source of different types.
  *
  * @ingroup source
- *
  */
-class SourcePermissions{
+class SourcePermissions {
 
   use StringTranslationTrait;
 

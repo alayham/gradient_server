@@ -26,7 +26,7 @@ class GradientListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var \Drupal\gradient\Entity\Gradient $entity */
+    /** @var \Drupal\gradient\Entity\Gradient $entity */
     $row['id'] = $entity->id();
     $row['name'] = Link::createFromRoute(
       $entity->label(),

@@ -103,84 +103,84 @@ class GradientController extends ControllerBase implements ContainerInjectionInt
     foreach (array_reverse($vids) as $vid) {
       /** @var \Drupal\gradient\GradientInterface $revision */
       $revision = $gradient_storage->loadRevision($vid);
-        $username = [
-          '#theme' => 'username',
-          '#account' => $revision->getRevisionUser(),
-        ];
+      $username = [
+        '#theme' => 'username',
+        '#account' => $revision->getRevisionUser(),
+      ];
 
-        // Use revision link to link to revisions that are not active.
-        $date = $this->dateFormatter->format($revision->getRevisionCreationTime(), 'short');
-        if ($vid != $gradient->getRevisionId()) {
-          $link = $this->l($date, new Url('entity.gradient.revision', [
-            'gradient' => $gradient->id(),
-            'gradient_revision' => $vid,
-          ]));
-        }
-        else {
-          $link = $gradient->link($date);
-        }
+      // Use revision link to link to revisions that are not active.
+      $date = $this->dateFormatter->format($revision->getRevisionCreationTime(), 'short');
+      if ($vid != $gradient->getRevisionId()) {
+        $link = $this->l($date, new Url('entity.gradient.revision', [
+          'gradient' => $gradient->id(),
+          'gradient_revision' => $vid,
+        ]));
+      }
+      else {
+        $link = $gradient->link($date);
+      }
 
-        $row = [];
-        $column = [
-          'data' => [
-            '#type' => 'inline_template',
-            '#template' => '{% trans %}{{ date }} by {{ username }}{% endtrans %}{% if message %}<p class="revision-log">{{ message }}</p>{% endif %}',
-            '#context' => [
-              'date' => $link,
-              'username' => $this->renderer->renderPlain($username),
-              'message' => [
-                '#markup' => $revision->getRevisionLogMessage(),
-                '#allowed_tags' => Xss::getHtmlTagList(),
-              ],
+      $row = [];
+      $column = [
+        'data' => [
+          '#type' => 'inline_template',
+          '#template' => '{% trans %}{{ date }} by {{ username }}{% endtrans %}{% if message %}<p class="revision-log">{{ message }}</p>{% endif %}',
+          '#context' => [
+            'date' => $link,
+            'username' => $this->renderer->renderPlain($username),
+            'message' => [
+              '#markup' => $revision->getRevisionLogMessage(),
+              '#allowed_tags' => Xss::getHtmlTagList(),
             ],
           ],
+        ],
+      ];
+      $row[] = $column;
+
+      if ($latest_revision) {
+        $row[] = [
+          'data' => [
+            '#prefix' => '<em>',
+            '#markup' => $this->t('Current revision'),
+            '#suffix' => '</em>',
+          ],
         ];
-        $row[] = $column;
-
-        if ($latest_revision) {
-          $row[] = [
-            'data' => [
-              '#prefix' => '<em>',
-              '#markup' => $this->t('Current revision'),
-              '#suffix' => '</em>',
-            ],
-          ];
-          foreach ($row as &$current) {
-            $current['class'] = ['revision-current'];
-          }
-          $latest_revision = FALSE;
+        foreach ($row as &$current) {
+          $current['class'] = ['revision-current'];
         }
-        else {
-          $links = [];
-          if ($revert_permission) {
-            $links['revert'] = [
-              'title' => $this->t('Revert'),
-              'url' => Url::fromRoute('entity.gradient.revision_revert', [
-                'gradient' => $gradient->id(),
-                'gradient_revision' => $vid,
-              ]),
-            ];
-          }
-
-          if ($delete_permission) {
-            $links['delete'] = [
-              'title' => $this->t('Delete'),
-              'url' => Url::fromRoute('entity.gradient.revision_delete', [
-                'gradient' => $gradient->id(),
-                'gradient_revision' => $vid,
-              ]),
-            ];
-          }
-
-          $row[] = [
-            'data' => [
-              '#type' => 'operations',
-              '#links' => $links,
-            ],
+        $latest_revision = FALSE;
+      }
+      else {
+        $links = [];
+        if ($revert_permission) {
+          $links['revert'] = [
+            'title' => $this->t('Revert'),
+            'url' => Url::fromRoute('entity.gradient.revision_revert', [
+              'gradient' => $gradient->id(),
+              'gradient_revision' => $vid,
+            ]),
           ];
         }
 
-        $rows[] = $row;
+        if ($delete_permission) {
+          $links['delete'] = [
+            'title' => $this->t('Delete'),
+            'url' => Url::fromRoute('entity.gradient.revision_delete', [
+              'gradient' => $gradient->id(),
+              'gradient_revision' => $vid,
+            ]),
+          ];
+        }
+
+        $row[] = [
+          'data' => [
+            '#type' => 'operations',
+            '#links' => $links,
+          ],
+        ];
+      }
+
+      $rows[] = $row;
     }
 
     $build['gradient_revisions_table'] = [

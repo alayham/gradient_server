@@ -4,11 +4,14 @@ namespace Drupal\gradient_server\Commands;
 
 use Drush\Commands\DrushCommands;
 use Drupal\layout_builder\Plugin\SectionStorage\OverridesSectionStorage;
-use Drupal\node\Entity\NodeType;
 use Drupal\node\Entity\Node;
 use Drupal\layout_builder\Section;
 use Drupal\layout_builder\SectionComponent;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
+
+/**
+ * A drush command to create a home page.
+ */
 class Home extends DrushCommands {
 
   /**

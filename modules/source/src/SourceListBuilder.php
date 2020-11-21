@@ -26,7 +26,7 @@ class SourceListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var \Drupal\source\Entity\Source $entity */
+    /** @var \Drupal\source\Entity\Source $entity */
     $row['id'] = $entity->id();
     $row['name'] = Link::createFromRoute(
       $entity->label(),

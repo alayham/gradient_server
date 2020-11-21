@@ -8,7 +8,6 @@
  */
 
 use Drupal\Core\Render\Element;
-use Drupal\feeds\Entity\FeedType;
 use Drupal\Core\Url;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
@@ -40,7 +39,7 @@ function template_preprocess_source(array &$variables) {
   ];
   if ($source->logo->entity) {
     $variables['source']['logo'] = $source->logo->entity->createFileUrl();
-  }  
+  }
 
   if ($source->access('update')) {
     $feed_types = \Drupal::service('source.connected_feed_types')->getConnectedFeedTypes();
