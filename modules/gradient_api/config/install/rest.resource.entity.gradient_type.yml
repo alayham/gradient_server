@@ -1,0 +1,20 @@
+uuid: 02484b1a-4631-4675-a505-5cd5a67f0b8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - gradient
+    - serialization
+    - user
+id: entity.gradient_type
+plugin_id: 'entity:gradient_type'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - basic_auth
+    - cookie

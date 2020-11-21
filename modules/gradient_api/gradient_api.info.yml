@@ -1,0 +1,12 @@
+name: 'Gradient Server API module'
+type: module
+description: 'Rest, JsonAPI and other API integrations'
+package: 'Gradient'
+core_version_requirement: ^9
+dependencies:
+  - drupal:rest
+  - drupal:jsonapi
+  - drupal:basic_auth
+  - drupal:node
+  - gradient_server:source
+  - gradient_server:gradient

@@ -1,0 +1,21 @@
+uuid: 92ca06d6-bcfd-49b1-9091-a4135e8eb118
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - feeds
+    - serialization
+    - user
+id: entity.feeds_feed_type
+plugin_id: 'entity:feeds_feed_type'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+    - xml
+  authentication:
+    - basic_auth
+    - cookie
