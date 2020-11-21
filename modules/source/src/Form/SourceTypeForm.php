@@ -6,7 +6,7 @@ use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class SourceTypeForm.
+ * The Source type form.
  */
 class SourceTypeForm extends EntityForm {
 

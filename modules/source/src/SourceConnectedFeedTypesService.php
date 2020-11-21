@@ -10,17 +10,32 @@ use Drupal\Core\Entity\EntityFieldManagerInterface;
  */
 class SourceConnectedFeedTypesService {
 
+  /**
+   * The The entity type bundle info service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface
+   */
   protected $infoService;
 
+  /**
+   * The The entity field manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityFieldManagerInterface
+   */
   protected $fieldManager;
 
+  /**
+   * A local cache of entity types.
+   *
+   * @var array|null
+   */
   protected $types = NULL;
 
   /**
    * Created a new instance of the service.
-   * 
+   *
    * @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface  $entity_type_bundle_info
-   *   The Entity Type Bundle Indo sericece.-white
+   *   The Entity Type Bundle Indo sericece.
    * @var \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
    *   The Entity Field Manager service.
    */

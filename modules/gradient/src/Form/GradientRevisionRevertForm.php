@@ -107,8 +107,14 @@ class GradientRevisionRevertForm extends ConfirmFormBase {
     ]);
     $this->revision->save();
 
-    $this->logger('content')->notice('Gradient: reverted %title revision %revision.', ['%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
-    $this->messenger()->addMessage(t('Gradient %title has been reverted to the revision from %revision-date.', ['%title' => $this->revision->label(), '%revision-date' => $this->dateFormatter->format($original_revision_timestamp)]));
+    $this->logger('content')->notice('Gradient: reverted %title revision %revision.', [
+      '%title' => $this->revision->label(),
+      '%revision' => $this->revision->getRevisionId(),
+    ]);
+    $this->messenger()->addMessage(t('Gradient %title has been reverted to the revision from %revision-date.', [
+      '%title' => $this->revision->label(),
+      '%revision-date' => $this->dateFormatter->format($original_revision_timestamp),
+    ]));
     $form_state->setRedirect(
       'entity.gradient.version_history',
       ['gradient' => $this->revision->id()]

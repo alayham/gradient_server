@@ -392,10 +392,10 @@ class DemoData extends DrushCommands {
   /**
    * Import json demo data.
    *
-   * @command gradient:demo_data:create:demo
-   *
-   * @param $file
+   * @param string $file
    *   The data file to import.
+   *
+   * @command gradient:demo_data:create:demo
    * @aliases gdcd
    * @usage gradient:demo_data:create:demo file
    */

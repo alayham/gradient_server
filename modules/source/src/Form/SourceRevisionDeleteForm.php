@@ -91,8 +91,14 @@ class SourceRevisionDeleteForm extends ConfirmFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->SourceStorage->deleteRevision($this->revision->getRevisionId());
 
-    $this->logger('content')->notice('Source: deleted %title revision %revision.', ['%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
-    $this->messenger()->addMessage(t('Revision from %revision-date of Source %title has been deleted.', ['%revision-date' => format_date($this->revision->getRevisionCreationTime()), '%title' => $this->revision->label()]));
+    $this->logger('content')->notice('Source: deleted %title revision %revision.', [
+      '%title' => $this->revision->label(),
+      '%revision' => $this->revision->getRevisionId(),
+    ]);
+    $this->messenger()->addMessage(t('Revision from %revision-date of Source %title has been deleted.', [
+      '%revision-date' => format_date($this->revision->getRevisionCreationTime()),
+      '%title' => $this->revision->label(),
+    ]));
     $form_state->setRedirect(
       'entity.source.canonical',
        ['source' => $this->revision->id()]

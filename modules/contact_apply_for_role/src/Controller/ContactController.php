@@ -11,15 +11,15 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Cache\Cache;
 
 /**
- * The contact controller class
+ * The contact controller class.
  */
 class ContactController extends ControllerBase {
 
   /**
-   * Approce a role
-   * 
-   * @param  \Drupal\contact\MessageInterface $contact_message
-   *   The contact message
+   * Approce a role.
+   *
+   * @param \Drupal\contact\MessageInterface $contact_message
+   *   The contact message.
    */
   public function approveRole(MessageInterface $contact_message) {
     $redirect = $contact_message->toUrl('canonical')->toString();
@@ -49,10 +49,10 @@ class ContactController extends ControllerBase {
   }
 
   /**
-   * Access callback for the ApproveRole route
-   * 
-   * @param  \Drupal\contact\MessageInterface $contact_message
-   *   The contact message
+   * Access callback for the ApproveRole route.
+   *
+   * @param \Drupal\contact\MessageInterface $contact_message
+   *   The contact message.
    */
   public function approveRoleAccess(MessageInterface $contact_message) {
     $uid = $contact_message->get('uid')->target_id;

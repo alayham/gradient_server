@@ -6,7 +6,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class GradientSettingsForm.
+ * The Gradient settings form.
  *
  * @ingroup gradient
  */

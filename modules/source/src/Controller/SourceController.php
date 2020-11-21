@@ -92,7 +92,12 @@ class SourceController extends ControllerBase implements ContainerInjectionInter
     $langname = $source->language()->getName();
     $languages = $source->getTranslationLanguages();
     $has_translations = (count($languages) > 1);
-    $build['#title'] = $has_translations ? $this->t('@langname revisions for %title', ['@langname' => $langname, '%title' => $source->label()]) : $this->t('Revisions for %title', ['%title' => $source->label()]);
+    $build['#title'] = $has_translations ?
+      $this->t('@langname revisions for %title', [
+        '@langname' => $langname,
+        '%title' => $source->label(),
+      ]) :
+      $this->t('Revisions for %title', ['%title' => $source->label()]);
 
     $header = [$this->t('Revision'), $this->t('Operations')];
     $revert_permission = (($account->hasPermission("revert all source revisions") || $account->hasPermission('administer source entities')));

@@ -34,7 +34,7 @@ class GradientPermissions {
   /**
    * Returns a list of node permissions for a given node type.
    *
-   * @param \Drupal\gradient\Entity\Gradient $type
+   * @param \Drupal\gradient\Entity\GradientType $type
    *   The Gradient type.
    *
    * @return array

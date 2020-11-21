@@ -34,7 +34,7 @@ class SourcePermissions {
   /**
    * Returns a list of node permissions for a given node type.
    *
-   * @param \Drupal\source\Entity\Source $type
+   * @param \Drupal\source\Entity\SourceType $type
    *   The Source type.
    *
    * @return array

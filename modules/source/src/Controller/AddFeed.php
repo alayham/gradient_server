@@ -11,7 +11,7 @@ use Drupal\source\Entity\Source;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
- * The AddFeed route controller
+ * The AddFeed route controller.
  */
 class AddFeed extends ControllerBase {
 
