@@ -5,6 +5,9 @@ package: 'Gradient'
 core_version_requirement: ^9
 dependencies:
   - feeds:feeds
+  - search_api:search_api
+  - search_api_solr:search_api_solr
+  - search_api_solr:search_api_solr_admin
   - source
   - gradient
   - gradient_core

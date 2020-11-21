@@ -10,7 +10,6 @@ dependencies:
   - views_rss:views_rss_core
   - antibot:antibot
   - honeypot:honeypot
-  - search_api_solr:search_api_solr_admin
   - facets:facets
   - core:node
   - core:taxonomy
@@ -48,9 +47,6 @@ install:
   - views_rss
   - views_rss_core
   - honeypot
-  - search_api
-  - search_api_solr
-  - search_api_solr_admin
   - eva
   - filefield_sources
   - token
