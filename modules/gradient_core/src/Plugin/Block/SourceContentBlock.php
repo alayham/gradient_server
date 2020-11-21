@@ -26,7 +26,7 @@ class SourceContentBlock extends BlockBase {
       'view_mode' => 'titles',
       'sort_by' => 'created',
       'count' => 10,
-      'source' => ''
+      'source' => '',
     ];
   }
 
@@ -89,6 +89,9 @@ class SourceContentBlock extends BlockBase {
     $this->configuration['count'] = $form_state->getValue('count');
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function build() {
     if ($this->configuration['view_mode'] === 'titles') {
       if ($this->configuration['sort_by'] === 'recent') {
