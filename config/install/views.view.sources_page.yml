@@ -5,9 +5,11 @@ dependencies:
     - core.entity_view_mode.source.name
     - field.storage.source.categories
     - system.menu.main
+    - taxonomy.vocabulary.categories
   module:
     - feeds
     - source
+    - taxonomy
 id: sources_page
 label: 'Sources page'
 module: views
@@ -677,7 +679,188 @@ display:
             operator_limit_selection: false
             operator_list: {  }
           group: 1
-      sorts: {  }
+        name:
+          id: name
+          table: source_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: Name
+            description: ''
+            use_operator: false
+            operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              gradient_user: '0'
+              source_user: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: source
+          entity_field: name
+          plugin_id: string
+        type:
+          id: type
+          table: source_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: Type
+            description: ''
+            use_operator: false
+            operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              gradient_user: '0'
+              source_user: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: source
+          entity_field: type
+          plugin_id: bundle
+        categories_target_id:
+          id: categories_target_id
+          table: source__categories
+          field: categories_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: categories_target_id_op
+            label: Category
+            description: ''
+            use_operator: false
+            operator: categories_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: categories_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              gradient_user: '0'
+              source_user: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: categories
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      sorts:
+        name:
+          id: name
+          table: source_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: Name
+          entity_type: source
+          entity_field: name
+          plugin_id: standard
+        fid:
+          id: fid
+          table: feeds_feed
+          field: fid
+          relationship: reverse__feeds_feed__source_entity
+          group_type: count
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: Feeds
+          entity_type: feeds_feed
+          entity_field: fid
+          plugin_id: standard
+        item_count:
+          id: item_count
+          table: feeds_feed
+          field: item_count
+          relationship: reverse__feeds_feed__source_entity
+          group_type: sum
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: Items
+          entity_type: feeds_feed
+          entity_field: item_count
+          plugin_id: standard
       title: 'Sources list'
       header: {  }
       footer: {  }
@@ -702,7 +885,11 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
       tags:
         - 'config:core.entity_view_display.source.website.default'
         - 'config:core.entity_view_display.source.website.logo'
@@ -730,7 +917,11 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+        - user
       tags:
         - 'config:core.entity_view_display.source.website.default'
         - 'config:core.entity_view_display.source.website.logo'
