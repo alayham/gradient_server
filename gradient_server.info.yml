@@ -52,6 +52,7 @@ install:
   - token
   - contact_storage
   - config_update_ui
+  - title_length
 
   - source
   - gradient
