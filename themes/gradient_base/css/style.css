@@ -38,3 +38,7 @@ a.cached {
 #drupal-off-canvas .ui-autocomplete a {
   background-color: #fff;
 }
+
+.form--inline .form-group {
+  display:inline-block;
+}
