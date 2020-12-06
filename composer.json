@@ -3,6 +3,13 @@
     "description": "Allows the creation of multiple aggregated feeds based on other aggregated feeds",
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
+    "homepage": "http://www.gradientserver.com",
+    "authors": [
+        {
+            "name": "Al Saleh",
+            "email": "alayham@alayham.com"
+        }
+    ],
     "require": {
         "drupal/antibot": "^1.4",
         "drupal/admin_toolbar": "2.4",
@@ -21,19 +28,15 @@
         "drush/drush": "^10.4",
         "twbs/bootstrap": "^4.5"
     },
-    "authors": [
-        {
-            "name": "Al Saleh",
-            "email": "alayham@alayham.com"
-        }
-    ],
-    "homepage": "http://www.alayham.com",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
         "patches": {
             "drupal/contact_storage": {
               "fix contact storage installation": "https://www.drupal.org/files/issues/2020-09-28/3053497-8.patch"
+            },
+            "drupal/filefield_sources": {
+                "Theme functions are deprecated" : "https://www.drupal.org/files/issues/2020-11-20/filefield_sources-twigify-3183780-2.patch"
             }
         }
     }
