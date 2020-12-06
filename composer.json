@@ -36,7 +36,8 @@
               "fix contact storage installation": "https://www.drupal.org/files/issues/2020-09-28/3053497-8.patch"
             },
             "drupal/filefield_sources": {
-                "Theme functions are deprecated" : "https://www.drupal.org/files/issues/2020-11-20/filefield_sources-twigify-3183780-2.patch"
+                "Theme functions are deprecated" : "https://www.drupal.org/files/issues/2020-11-20/filefield_sources-twigify-3183780-2.patch",
+                "fix deprecated warning": "https://git.drupalcode.org/project/filefield_sources/-/merge_requests/1.diff"
             }
         }
     }
