@@ -1,0 +1,13 @@
+name: 'Gradient Server SitePins integration'
+type: module
+description: 'Source, Feeds, and search for SitePins.net'
+package: 'Gradient server integrations'
+core_version_requirement: ^9
+dependencies:
+  - feeds:feeds
+  - search_api:search_api
+  - search_api_solr:search_api_solr
+  - search_api_solr:search_api_solr_admin
+  - source
+  - gradient
+  - gradient_core

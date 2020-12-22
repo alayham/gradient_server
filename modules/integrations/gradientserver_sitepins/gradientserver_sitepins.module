@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function gradientserver_sitepins_theme() {
+  return [
+    'sitepins_image' => [
+      'variables' => ['url' => NULL],
+      'template' => 'sitepins_image',
+    ],
+    'sitepins_video' => [
+      'variables' => ['url' => NULL],
+      'template' => 'sitepins_video',
+    ],
+  ];
+}

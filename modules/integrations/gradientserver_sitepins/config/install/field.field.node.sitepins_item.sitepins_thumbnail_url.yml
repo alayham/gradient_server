@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sitepins_thumbnail_url
+    - node.type.sitepins_item
+id: node.sitepins_item.sitepins_thumbnail_url
+field_name: sitepins_thumbnail_url
+entity_type: node
+bundle: sitepins_item
+label: 'Thumbnail Url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

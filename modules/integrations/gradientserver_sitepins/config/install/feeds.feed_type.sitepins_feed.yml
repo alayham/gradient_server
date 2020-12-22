@@ -1,0 +1,93 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.sitepins_item.feed_entity
+    - field.field.node.sitepins_item.feeds_item
+    - field.field.node.sitepins_item.sitepins_author
+    - field.field.node.sitepins_item.sitepins_thumbnail_url
+    - field.field.node.sitepins_item.sitepins_video_url
+    - node.type.sitepins_item
+  module:
+    - gradientserver_sitepins
+    - node
+id: sitepins_feed
+label: 'Sitepins Feed'
+description: ''
+help: ''
+import_period: 86400
+fetcher: http
+fetcher_configuration:
+  auto_detect_feeds: false
+  use_pubsubhubbub: false
+  always_download: false
+  fallback_hub: ''
+  request_timeout: 30
+parser: sitepins_parser
+parser_configuration: {  }
+processor: 'entity:node'
+processor_configuration:
+  langcode: en
+  update_existing: 2
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+  authorize: false
+  skip_hash_check: false
+  values:
+    type: sitepins_item
+custom_sources: {  }
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: sitepins_author
+    map:
+      value: sitepins_author
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: created
+    map:
+      value: created
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: sitepins_video_url
+    map:
+      value: sitepins_video_url
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: sitepins_thumbnail_url
+    map:
+      value: sitepins_thumbnail_url
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: feeds_item
+    map:
+      url: sitepins_video_url
+      guid: guid
+    unique:
+      url: '1'
+      guid: '1'
+    settings: {  }
+  -
+    target: feed_entity
+    map:
+      target_id: 'parent:fid'
+    settings:
+      language: ''
+      reference_by: fid
+      autocreate: 0

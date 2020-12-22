@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sitepins_author
+    - node.type.sitepins_item
+id: node.sitepins_item.sitepins_author
+field_name: sitepins_author
+entity_type: node
+bundle: sitepins_item
+label: author
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.sitepins_author
+  module:
+    - facets
+  theme:
+    - gradient_base
+id: sitepinsauthor
+theme: gradient_base
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:sitepins_author'
+settings:
+  id: 'facet_block:sitepins_author'
+  label: 'Sitepins author'
+  provider: facets
+  label_display: visible
+  block_id: sitepinsauthor
+visibility: {  }

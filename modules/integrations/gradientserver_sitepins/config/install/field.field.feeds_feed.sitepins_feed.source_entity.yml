@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.sitepins_feed
+    - field.storage.feeds_feed.source_entity
+    - source.source_type.website
+id: feeds_feed.sitepins_feed.source_entity
+field_name: source_entity
+entity_type: feeds_feed
+bundle: sitepins_feed
+label: 'Source entity'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:source'
+  handler_settings:
+    target_bundles:
+      website: website
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

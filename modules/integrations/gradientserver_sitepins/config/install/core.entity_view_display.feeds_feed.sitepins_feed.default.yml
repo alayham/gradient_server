@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.sitepins_feed
+    - field.field.feeds_feed.sitepins_feed.source_entity
+  module:
+    - feeds
+    - user
+id: feeds_feed.sitepins_feed.default
+targetEntityType: feeds_feed
+bundle: sitepins_feed
+mode: default
+content:
+  imported:
+    label: inline
+    type: timestamp_ago
+    weight: 1
+    region: content
+    settings:
+      future_format: '@interval hence'
+      past_format: '@interval ago'
+      granularity: 2
+    third_party_settings: {  }
+  next:
+    label: inline
+    type: timestamp
+    weight: 1
+    region: content
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  source:
+    label: inline
+    type: feeds_uri_link
+    weight: -3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  source_entity:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  search_api_excerpt: true

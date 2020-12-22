@@ -1,0 +1,59 @@
+<?php
+
+use Drupal\search_api\Entity\Index;
+use Drupal\search_api\Item\Field;
+use Drupal\gradientserver_sitepins\SitePinsHelper;
+
+
+function gradientserver_sitepins_install() {
+  $index = Index::load('content');
+  if (!empty($index)) {
+    $datasources = $index->getDatasources();
+    if(!empty($datasources['entity:node'])) {
+      $config = $datasources['entity:node']->getConfiguration();
+      $config['bundles']['selected'][] = 'sitepins_item';
+      $datasources['entity:node']->setConfiguration($config);
+      $index->setDatasources($datasources);
+    }
+    $fields = $index->getFields();
+    if (!empty($fields)) {
+      foreach (SitePinsHelper::FIELDS as $id => $label) {
+        $field = new Field($index, $id);
+        $field->setFieldIdentifier($id);
+        $field->setDatasourceId('entity:node');
+        $field->setPropertyPath($id);
+        $field->setLabel($label);
+        $field->setType('string');
+        $field->setDependencies([
+          'config' => ['field.storage.node.' . $id]
+        ]);
+        $fields[$id] = $field;
+  
+      }
+      $index->setFields($fields);
+      $fields = $index->getFields();
+    }
+    $index->save();
+  }
+}
+
+function gradientserver_sitepins_uninstall() {
+  $index = Index::load('content');
+  if (!empty($index)) {
+    $datasources = $index->getDatasources();
+    if(!empty($datasources['entity:node'])) {
+      $config = $datasources['entity:node']->getConfiguration();
+      $config['bundles']['selected'] = array_filter($config['bundles']['selected'], function($bundle) {return $bundle !== 'sitepins_item';});
+      $datasources['entity:node']->setConfiguration($config);
+      $index->setDatasources($datasources);
+    }
+    $fields = $index->getFields();
+    if (!empty($fields)) {
+      foreach (SitePinsHelper::FIELDS as $id => $label) {
+        unset($fields[$id]);
+      }
+      $index->setFields($fields);
+    }
+    $index->save();
+  }
+}
