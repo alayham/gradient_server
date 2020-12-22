@@ -106,7 +106,11 @@ class SitePins extends DrushCommands {
             'target_id' => $feed->id(),
             'guid' => $item['guid'],
             'item_url' => $item['sitepins_video_url'],
-          ]
+          ],
+          'link' => [
+            'uri' => $item['sitepins_video_url'],
+            'title' => $item['title']
+          ],
         ]);
         Node::create($item_fields)->save();
       }

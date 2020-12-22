@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.node.sitepins_item.feed_entity
     - field.field.node.sitepins_item.feeds_item
+    - field.field.node.sitepins_item.link
     - field.field.node.sitepins_item.sitepins_author
     - field.field.node.sitepins_item.sitepins_thumbnail_url
     - field.field.node.sitepins_item.sitepins_video_url
@@ -91,3 +92,10 @@ mappings:
       language: ''
       reference_by: fid
       autocreate: 0
+  -
+    target: link
+    map:
+      uri: sitepins_video_url
+      title: title
+    settings:
+      language: null
