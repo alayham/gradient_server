@@ -4,6 +4,7 @@ use Drupal\Core\Form\FormStateInterface;
 
 function gradient_base_preprocess_node(&$variables) {
   $node = $variables['node'];
+  $variables['title'] = strip_tags($node->label());
   if($node->hasField('feed_entity')) {
     $manager = \Drupal::entityTypeManager();
     $feed = $node->feed_entity->entity;
