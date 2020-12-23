@@ -21,7 +21,7 @@ class SitePinsHelper {
     'truthstream' => 'Truth Stream Media',
     'wearechange' => 'We Are Change',
     'worldaltmedia' => 'World Alternative Media',
-    // 'freedomsphoenix' => 'Freedoms Phoenix',
+    'freedomsphoenix' => 'Freedoms Phoenix',
     'historycommons' => 'History Commons',
   ];
 
