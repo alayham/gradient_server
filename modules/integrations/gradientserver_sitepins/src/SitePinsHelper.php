@@ -15,6 +15,16 @@ class SitePinsHelper {
     'sitepins_author' => 'Sitepins author',
   ];
 
+  const COLLECTIONS = [
+    'lukewearechange' => 'Luke We Are Change',
+    'press4truth' => 'Press For Truth',
+    'truthstream' => 'Truth Stream Media',
+    'wearechange' => 'We Are Change',
+    'worldaltmedia' => 'World Alternative Media',
+    // 'freedomsphoenix' => 'Freedoms Phoenix',
+    'historycommons' => 'History Commons',
+  ];
+
 
   /**
    * Download a sitepins.net collection page.
@@ -57,14 +67,16 @@ class SitePinsHelper {
     $result = [];
     foreach($divs as $div) {
       $arr = self::dom2array($div);
-      $result[] = [
-        'guid' => trim($arr['h4']['a']['#attributes']['href']),
-        'sitepins_thumbnail_url' => self::sitepins_url(trim($arr['img']['#attributes']['src'])),
-        'sitepins_video_url' => self::sitepins_url(trim($arr['h4']['a']['#attributes']['href'])),
-        'title' => trim($arr['h4']['a']['#text']),
-        'sitepins_author' => trim($arr['div']['span']['#text']),
-        'created' => self::sitepins_date(trim($arr['div']['div']['#attributes']['datetime'])),
-      ];
+      if (!empty(trim($arr['h4']['a']['#text'])) && !empty (trim($arr['h4']['a']['#attributes']['href']))) {
+        $result[] = [
+          'guid' => trim($arr['h4']['a']['#attributes']['href']),
+          'sitepins_thumbnail_url' => self::sitepins_url(trim($arr['img']['#attributes']['src'])),
+          'sitepins_video_url' => self::sitepins_url(trim($arr['h4']['a']['#attributes']['href'])),
+          'title' => trim($arr['h4']['a']['#text']),
+          'sitepins_author' => trim($arr['div']['span']['#text']),
+          'created' => self::sitepins_date(trim($arr['div']['div']['#attributes']['datetime'])),
+        ];
+      }
     }
     return $result;
   }

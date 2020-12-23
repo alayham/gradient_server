@@ -7,6 +7,7 @@ use Drupal\feeds\Entity\Feed;
 use Drupal\file\Entity\File;
 use Drupal\source\Entity\Source;
 use Drupal\node\Entity\Node;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\gradientserver_sitepins\SitePinsHelper;
 
 /**
@@ -25,15 +26,6 @@ class SitePins extends DrushCommands {
    * @aliases gspc
    */
   public function import() {
-    $collections = [
-      'lukewearechange' => 'Luke We Are Change',
-      // 'press4truth' => 'Press For Truth',
-      // 'truthstream' => 'Truth Stream Media',
-      // 'wearechange' => 'We Are Change',
-      // 'worldaltmedia' => 'World Alternative Media',
-      // 'freedomsphoenix' => 'Freedoms Phoenix',
-      'historycommons' => 'History Commons',
-    ];
 
     file_put_contents('public://sitepins.png', file_get_contents(__DIR__ . '/../../images/sitepins.png'));
     $logo = File::create(['uri' => 'public://sitepins.png']);
@@ -47,13 +39,13 @@ class SitePins extends DrushCommands {
     ]);
     $source->save();
     $operations = [];
-    foreach($collections as $id => $name) {
+    foreach(SitePinsHelper::COLLECTIONS as $id => $name) {
       $feeds[$id] = Feed::create([
         'type' => 'sitepins_feed',
         'title' => $name,
         'status' => 1,
         'source' => 'http://sitepins.net/Collection/' . $id,
-        'source_entity' => [$source1],
+        'source_entity' => $source,
         'uid' => 1,
       ]);
       $feeds[$id]->save();
@@ -87,9 +79,22 @@ class SitePins extends DrushCommands {
     if(empty($context['sandbox'])){
       $context['sandbox']['page'] = 0;
     }
+    if ($context['sandbox']['page'] === 1500) {
+      // Prevent infinite loops.
+      $context['finished'] = 1;
+      return new TranslatableMarkup('Reached import limit for feed @feed', [
+        '@feed' => $feed->label(),
+      ]);
+    }
+    $context['finished'] = 0;
     $context['sandbox']['page']++;
     $html = SitePinsHelper::getHtml($feed, $context['sandbox']['page']);
-
+    if (empty($html)) {
+      $context['finished'] = 1;
+      return new TranslatableMarkup('No more items found in feed @feed', [
+        '@feed' => $feed->label(),
+      ]);
+    }
     $fields = [
       'type' => 'sitepins_item',
       'status' => 1,
@@ -97,27 +102,27 @@ class SitePins extends DrushCommands {
       'uid' => 1,
       'feed_entity' => [$feed],
     ];
-    while ($context['sandbox']['page'] < 1500 && !empty($html)) {
-      $html = '<html>' . $html . '</html>';
-      $items = SitePinsHelper::parseHtml($html);
-      foreach($items as $item) {
-        $item_fields = array_merge ($fields, $item, [
-          'feeds_item' => [
-            'target_id' => $feed->id(),
-            'guid' => $item['guid'],
-            'item_url' => $item['sitepins_video_url'],
-          ],
-          'link' => [
-            'uri' => $item['sitepins_video_url'],
-            'title' => $item['title']
-          ],
-        ]);
-        Node::create($item_fields)->save();
-      }
-
-      $context['sandbox']['page']++;
-      $html = SitePinsHelper::getHtml($feed, $context['sandbox']['page']);
+    $html = '<html>' . $html . '</html>';
+    $items = SitePinsHelper::parseHtml($html);
+    foreach($items as $item) {
+      $item_fields = array_merge ($fields, $item, [
+        'feeds_item' => [
+          'target_id' => $feed->id(),
+          'guid' => $item['guid'],
+          'item_url' => $item['sitepins_video_url'],
+        ],
+        'link' => [
+          'uri' => $item['sitepins_video_url'],
+          'title' => $item['title']
+        ],
+      ]);
+      Node::create($item_fields)->save();
     }
+    return new TranslatableMarkup('Imported @count items from page @page in feed @feed', [
+      '@count' => count($items),
+      '@page' => $context['sandbox']['page'],
+      '@feed' => $feed->label(),
+    ]);
   }
 
   /**
