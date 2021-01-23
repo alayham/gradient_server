@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.bitchute_thumb_url
+    - node.type.bitchute_item
+id: node.bitchute_item.bitchute_thumb_url
+field_name: bitchute_thumb_url
+entity_type: node
+bundle: bitchute_item
+label: 'Bitchute thumb url'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

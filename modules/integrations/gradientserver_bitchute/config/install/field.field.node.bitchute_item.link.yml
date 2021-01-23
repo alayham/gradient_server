@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.link
+    - node.type.bitchute_item
+  module:
+    - link
+id: node.bitchute_item.link
+field_name: link
+entity_type: node
+bundle: bitchute_item
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,93 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.bitchute_item.body
+    - field.field.node.bitchute_item.feed_entity
+    - field.field.node.bitchute_item.feeds_item
+    - field.field.node.bitchute_item.bitchute_thumb_url
+    - field.field.node.bitchute_item.link
+    - node.type.bitchute_item
+  module:
+    - node
+id: bitchute_channel
+label: 'Bitchute Channel'
+description: ''
+help: ''
+import_period: 3600
+fetcher: gradientserver_bitchute
+fetcher_configuration:
+  auto_detect_feeds: ''
+  use_pubsubhubbub: ''
+  always_download: 0
+  request_timeout: '30'
+  fallback_hub: ''
+parser: syndication
+parser_configuration: {  }
+processor: 'entity:node'
+processor_configuration:
+  langcode: en
+  update_existing: 2
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+  authorize: false
+  skip_hash_check: false
+  values:
+    type: bitchute_item
+custom_sources: {  }
+mappings:
+  -
+    target: created
+    map:
+      value: timestamp
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: bitchute_thumb_url
+    map:
+      value: enclosures
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: body
+    map:
+      value: description
+      summary: description
+    settings:
+      language: ''
+      format: restricted_html
+  -
+    target: title
+    map:
+      value: title
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: link
+    map:
+      uri: url
+      title: title
+    settings:
+      language: null
+  -
+    target: feed_entity
+    map:
+      target_id: 'parent:fid'
+    settings:
+      language: ''
+      reference_by: fid
+      autocreate: 0
+  -
+    target: feeds_item
+    map:
+      url: url
+      guid: guid
+    unique:
+      url: '1'
+      guid: '1'
+    settings: {  }

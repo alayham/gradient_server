@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.bitchute_channel
+    - node.type.bitchute_item
+id: node.bitchute_item.bitchute_channel
+field_name: bitchute_channel
+entity_type: node
+bundle: bitchute_item
+label: 'Bitchute Channel'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

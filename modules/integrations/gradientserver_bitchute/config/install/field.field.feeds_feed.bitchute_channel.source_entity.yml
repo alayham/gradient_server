@@ -1,0 +1,28 @@
+uuid: d644a2b0-9b71-4c86-8984-8efcf3c27f50
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.bitchute_channel
+    - field.storage.feeds_feed.source_entity
+id: feeds_feed.bitchute_channel.source_entity
+field_name: source_entity
+entity_type: feeds_feed
+bundle: bitchute_channel
+label: 'Source entity'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:source'
+  handler_settings:
+    target_bundles:
+      website: website
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
